@@ -55,7 +55,7 @@
 
 		<!-- Used by SonarCloud -->
 		<sonar.projectKey>devtime_parent-pom</sonar.projectKey>
-		<sonar.organization>dev|time</sonar.organization>
+		<sonar.organization>devtime</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
 		<!-- Plugin versions -->
