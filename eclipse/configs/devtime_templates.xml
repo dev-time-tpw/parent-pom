@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="java" deleted="false" description="Creates a new FIXME block" enabled="true" name="fixme">// FIXME ${cursor} 
+// by ${user} on ${date}</template><template autoinsert="false" context="java-statements" deleted="false" description="Creates a new HQL query block" enabled="true" name="queryList">final StringBuilder query = new StringBuilder();&#13;
+query.append("SELECT  FROM ${elemType} AS");&#13;
+query.append("  WHERE xyz = :pParam");&#13;
+&#13;
+final Query q = this.entityManager.createQuery(query.toString());&#13;
+q.setParameter("pParam", "");&#13;
+&#13;
+final List&lt;${elemType}&gt; resultList = getResultList(q);&#13;
+&#13;
+if (LOG.isDebugEnabled()) {&#13;
+	LOG.debug(DebugUtil.debugVariables(new String[] { "resultList" }, resultList));&#13;
+}&#13;
+assert resultList != null : "resultList darf nicht null sein!";&#13;
+return resultList;&#13;
+</template><template autoinsert="false" context="java-statements" deleted="false" description="Creates a new HQL query block" enabled="true" name="querySingle">final StringBuilder query = new StringBuilder();&#13;
+query.append("SELECT  FROM ${elemType} AS ");&#13;
+query.append("  WHERE xyz = :pParam");&#13;
+&#13;
+final Query q = this.entityManager.createQuery(query.toString());&#13;
+q.setParameter("pParam", "");&#13;
+&#13;
+${elemType} result = getSingleResult(q);&#13;
+&#13;
+if (LOG.isDebugEnabled()) {&#13;
+	LOG.debug(DebugUtil.debugVariables(new String[] { "result" }, result));&#13;
+}&#13;
+return result;</template><template autoinsert="true" context="java" deleted="false" description="Creates a new komplex setter block with logging and observer" enabled="true" name="setter">		if (LOG.isDebugEnabled()) {&#13;
+			LOG.debug(DebugUtil.debugVariables(new String[] { "this.${enclosing_method_arguments}, ${enclosing_method_arguments}" }, this.${enclosing_method_arguments}, ${enclosing_method_arguments}));&#13;
+		}&#13;
+		if(checkValueChanged(this.${enclosing_method_arguments}, ${enclosing_method_arguments})) {&#13;
+			this.${enclosing_method_arguments} = ${enclosing_method_arguments};&#13;
+			if(!isChanging()) {&#13;
+				syncViews(${cursor}${newName});&#13;
+			}&#13;
+		}&#13;
+</template><template autoinsert="false" context="java" deleted="false" description="Creates a new LOG.error row" enabled="true" name="error">LOG.error(e.getMessage(), e);</template><template autoinsert="false" context="java-members" deleted="false" description="Creates a new log4j2 logger member" enabled="true" name="logger-log4j2">${:import(org.apache.logging.log4j.LogManager,org.apache.logging.log4j.Logger)}&#13;
+private static final Logger LOG = LogManager.getLogger(${enclosing_type}.class);</template><template autoinsert="false" context="java-statements" deleted="false" description="Creates a new log4j debug block" enabled="true" name="debug">if (LOG.isDebugEnabled()) {&#13;
+	LOG.debug(LoggingUtil.log("${cursor}${enclosing_method_arguments}", ${enclosing_method_arguments}));&#13;
+}</template><template autoinsert="false" context="java-members" deleted="false" description="Creates a new slf4j logger member" enabled="true" name="logger-slf4j">${:import (org.slf4j.Logger, org.slf4j.LoggerFactory)}&#13;
+private static final Logger LOG = LoggerFactory.getLogger(${enclosing_type}.class);</template><template autoinsert="false" context="java" deleted="false" description="Creates a new TODO Block" enabled="true" name="todo">// TODO ${cursor}
+// by ${user} on ${date}</template><template autoinsert="false" context="java" deleted="false" description="Creates a new XXX block" enabled="true" name="xxx">// XXX ${cursor}
+// by ${user} on ${date}</template><template autoinsert="false" context="java" deleted="false" description="Creates a toString method block" enabled="true" name="tostring">@Override&#13;
+public String toString() {&#13;
+  return new ToStringBuilder(this).&#13;
+       append("$${array_element}$${cursor}", $${array_element}).&#13;
+       toString();&#13;
+}</template></templates>

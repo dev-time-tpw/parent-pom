@@ -1,0 +1,51 @@
+# Release build-job
+# Builds a new release. Several steps are passed through:
+# 1. checking if a release is possible and performing the build of the release.
+#    -> http://maven.apache.org/maven-release/maven-release-plugin/examples/prepare-release.html
+# 2. publish release
+#    -> http://maven.apache.org/maven-release/maven-release-plugin/examples/perform-release.html
+# If there are errors during the creation, the release is rolled back
+# -> http://maven.apache.org/maven-release/maven-release-plugin/examples/rollback-release.html
+#
+# Requirements:
+# - Use of the artifactory-maven-plugin plugin.
+# - User of the artifactory stored in the secrets under ARTIFACTORY_USERNAME
+# - token of the artifactory user stored in the secrets under ARTIFACTORY_TOKEN
+# - The branch is the master branch
+#
+# This job can be triggered only manually.
+
+name: Run release build-job
+on: [workflow_dispatch]
+jobs:
+
+  build-release:
+
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Configure git
+        run: |
+          git config --global committer.email "noreply@github.com"
+          git config --global committer.name "GitHub"
+          git config --global author.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config --global author.name "${GITHUB_ACTOR}"
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml    
+      - name: Prepare the release
+        run: |
+           mvn -B release:prepare
+      - name: Push the release
+        env:
+          ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+          ARTIFACTORY_TOKEN: ${{ secrets.ARTIFACTORY_TOKEN }}
+        run: mvn -B release:perform
+      - name: Rollback if failure
+        if: ${{ failure() }}
+        run: mvn -B release:rollback
