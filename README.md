@@ -8,7 +8,7 @@
     <a href="https://github.com/dev-time-tpw/parent-pom/blob/main/LICENSE" title="License"><img src="https://img.shields.io/github/license/dev-time-tpw/parent-pom?logo=GitHub&style=plastic"></a>
     <a href="https://github.com/dev-time-tpw/parent-pom" title="Last Commit"><img src="https://img.shields.io/github/last-commit/dev-time-tpw/parent-pom?logo=GitHub&style=plastic"></a>
     <br>
-    <a href="https://sonarcloud.io/dashboard?id=dev-time-tpw_parent-pom" title="Quality Gate"><img src="https://img.shields.io/sonar/quality_gate/dev-time-tpw_parent-pom?logo=SonarCloud&server=https%3A%2F%2Fsonarcloud.io&style=plastic"></a>
+    <a href="https://sonarcloud.io/dashboard?id=devtime_parent-pom" title="Quality Gate"><img src="https://img.shields.io/sonar/quality_gate/devtime_parent-pom?logo=SonarCloud&server=https%3A%2F%2Fsonarcloud.io&style=plastic"></a>
 </p>
 
 <hr />
@@ -29,7 +29,7 @@ Hierfür setzen wir auf kostenlose Cloud Technologien:
 - [Maven](http://maven.apache.org/) (als Build & Dependency Werkzeug)
 - [GitHub](https://github.com/dev-time-tpw) (als SCM)
 - [GitHub actions](https://docs.github.com/en/free-pro-team@latest/actions) (als CI/CD Pipeline)
-- [Sonarcloud.io](https://sonarcloud.io/organizations/dev-time-tpw/projects) (als Quality Werkzeug)
+- [Sonarcloud.io](https://sonarcloud.io/organizations/devtime/projects) (als Quality Werkzeug)
 - [JFrog Artifactory](https://devtime.jfrog.io/ui/packages) (als Artefakt Repository)
 
 ## Über uns
