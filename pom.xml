@@ -54,9 +54,9 @@
 		<project.scm.id>github</project.scm.id>
 
 		<!-- Used by SonarCloud -->
-		<sonar.projectKey>devtime_parent-pom</sonar.projectKey>
-		<sonar.organization>devtime</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.organization>devtime</sonar.organization>
+		<sonar.projectKey>devtime_parent-pom</sonar.projectKey>
 
 		<!-- Plugin versions -->
 		<artifactory-maven-plugin.version>3.2.3</artifactory-maven-plugin.version> <!-- Apache License -->
