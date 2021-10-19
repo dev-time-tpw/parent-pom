@@ -35,12 +35,12 @@
 	<distributionManagement>
 		<repository>
 			<id>devtime-releases-repo</id>
-			<name>devtime-release-local</name>			
-			<url>https://devtime.jfrog.io/artifactory/devtime-release</url>
+			<name>a0t6qk8gmmphw-artifactory-primary-0-releases</name>
+			<url>https://devtime.jfrog.io/artifactory/dev-time-release-local</url>
 		</repository>
 		<snapshotRepository>
 			<id>devtime-snapshots-repo</id>
-			<name>devtime-snapshot-local</name>
+			<name>a0t6qk8gmmphw-artifactory-primary-0-snapshots</name>
 			<url>https://devtime.jfrog.io/artifactory/devtime-snapshot</url>
 		</snapshotRepository>
 	</distributionManagement>
@@ -467,7 +467,7 @@
 		<repository>
 			<id>devtime-snapshots-repo</id>
 			<name>devtime-snapshot-local</name>
-			<url>https://devtime.jfrog.io/artifactory/dev-time-snapshot-local</url>
+			<url>https://devtime.jfrog.io/artifactory/devtime-snapshot</url>
 			<layout>default</layout>
 			<releases>
 				<enabled>false</enabled>
@@ -483,7 +483,7 @@
 		<repository>
 			<id>devtime-releases-repo</id>
 			<name>devtime-release-local</name>
-			<url>https://devtime.jfrog.io/artifactory/dev-time-release-local</url>
+			<url>https://devtime.jfrog.io/artifactory/devtime-release</url>
 			<layout>default</layout>
 			<releases>
 				<enabled>true</enabled>
@@ -510,7 +510,7 @@
 		<pluginRepository>
 			<id>devtime-snapshots-repo</id>
 			<name>devtime-snapshot-local</name>
-			<url>https://devtime.jfrog.io/artifactory/dev-time-snapshot-local</url>
+			<url>https://devtime.jfrog.io/artifactory/devtime-snapshot</url>
 			<layout>default</layout>
 			<releases>
 				<enabled>false</enabled>
@@ -526,7 +526,7 @@
 		<pluginRepository>
 			<id>devtime-releases-repo</id>
 			<name>devtime-release-local</name>
-			<url>https://devtime.jfrog.io/artifactory/dev-time-release-local/</url>
+			<url>https://devtime.jfrog.io/artifactory/devtime-release</url>
 			<layout>default</layout>
 			<releases>
 				<enabled>true</enabled>
@@ -632,8 +632,8 @@
 									<contextUrl>https://devtime.jfrog.io/artifactory</contextUrl>
 									<username>${ARTIFACTORY_USERNAME}</username>
 									<password>${ARTIFACTORY_TOKEN}</password>
-									<repoKey>devtime-release-local</repoKey>
-									<snapshotRepoKey>devtime-snapshot-local</snapshotRepoKey>
+									<repoKey>devtime-release</repoKey>
+									<snapshotRepoKey>devtime-snapshot</snapshotRepoKey>
 								</publisher>
 							</configuration>
 						</execution>
