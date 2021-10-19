@@ -34,7 +34,7 @@ Hierfür setzen wir auf kostenlose Cloud Technologien:
 
 ## Über uns
 
-Die <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x18.png"> entwickelt freie open source Software. Dabei haben wir einen sehr hohen qualitativen Anspruch, der sich 
+Die <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x12.png"> entwickelt freie open source Software. Dabei haben wir einen sehr hohen qualitativen Anspruch, der sich 
 sowohl in der Softwareentwicklung, als auch in der resultierenden Software widerspiegelt. Unser Team bringt langjährige
 Erfahrung aus folgenden Bereich mit:
 - Java Rich Clients (SWT, Swing, JavaFX)
@@ -45,7 +45,7 @@ Erfahrung aus folgenden Bereich mit:
 
 ## Lizenzierung
 
-Copyright (c) 2021 <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x18.png">.
+Copyright (c) 2021 <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x12.png">.
 
 Lizenziert unter **Apache-Lizenz, Version 2.0** (die "Lizenz"). Sie dürfen diese Datei ausschließlich im Einklang mit 
 der Lizenz verwenden.
