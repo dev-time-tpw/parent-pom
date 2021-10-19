@@ -35,13 +35,13 @@
 	<distributionManagement>
 		<repository>
 			<id>devtime-releases-repo</id>
-			<name>devtime-libs-release-local</name>
-			<url>https://devtime.jfrog.io/artifactory/devtime-libs-release-local/</url>
+			<name>devtime-release-local</name>
+			<url>https://devtime.jfrog.io/artifactory/devtime-release-local/</url>
 		</repository>
 		<snapshotRepository>
 			<id>devtime-snapshots-repo</id>
-			<name>devtime-libs-snapshot-local</name>
-			<url>https://devtime.jfrog.io/artifactory/devtime-libs-snapshot-local</url>
+			<name>devtime-snapshot-local</name>
+			<url>https://devtime.jfrog.io/artifactory/devtime-snapshot-local</url>
 		</snapshotRepository>
 	</distributionManagement>
 
@@ -466,8 +466,8 @@
 		<!-- SNAPSHOT repository for our dependencies -->
 		<repository>
 			<id>devtime-snapshots-repo</id>
-			<name>devtime-libs-snapshot-local</name>
-			<url>https://devtime.jfrog.io/artifactory/devtime-libs-snapshot-local/</url>
+			<name>devtime-snapshot-local</name>
+			<url>https://devtime.jfrog.io/artifactory/devtime-snapshot-local/</url>
 			<layout>default</layout>
 			<releases>
 				<enabled>false</enabled>
@@ -482,8 +482,8 @@
 		<!-- RELEASE repository for our dependencies -->
 		<repository>
 			<id>devtime-releases-repo</id>
-			<name>devtime-libs-release-local</name>
-			<url>https://devtime.jfrog.io/artifactory/devtime-libs-release-local/</url>
+			<name>devtime-release-local</name>
+			<url>https://devtime.jfrog.io/artifactory/devtime-release-local/</url>
 			<layout>default</layout>
 			<releases>
 				<enabled>true</enabled>
@@ -509,8 +509,8 @@
 		<!-- SNAPSHOT repository for own plugin dependencies -->
 		<pluginRepository>
 			<id>devtime-snapshots-repo</id>
-			<name>devtime-libs-snapshot-local</name>
-			<url>https://devtime.jfrog.io/artifactory/devtime-libs-snapshot-local/</url>
+			<name>devtime-snapshot-local</name>
+			<url>https://devtime.jfrog.io/artifactory/devtime-snapshot-local/</url>
 			<layout>default</layout>
 			<releases>
 				<enabled>false</enabled>
@@ -525,8 +525,8 @@
 		<!-- RELEASE repository for own plugin dependencies -->
 		<pluginRepository>
 			<id>devtime-releases-repo</id>
-			<name>devtime-libs-release-local</name>
-			<url>https://devtime.jfrog.io/artifactory/devtime-libs-release-local/</url>
+			<name>devtime-release-local</name>
+			<url>https://devtime.jfrog.io/artifactory/devtime-release-local/</url>
 			<layout>default</layout>
 			<releases>
 				<enabled>true</enabled>
@@ -632,8 +632,8 @@
 									<contextUrl>https://devtime.jfrog.io/artifactory</contextUrl>
 									<username>${ARTIFACTORY_USERNAME}</username>
 									<password>${ARTIFACTORY_TOKEN}</password>
-									<repoKey>devtime-libs-release-local</repoKey>
-									<snapshotRepoKey>devtime-libs-snapshot-local</snapshotRepoKey>
+									<repoKey>devtime-release-local</repoKey>
+									<snapshotRepoKey>devtime-snapshot-local</snapshotRepoKey>
 								</publisher>
 							</configuration>
 						</execution>
