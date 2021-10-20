@@ -36,7 +36,7 @@
 		<repository>
 			<id>devtime-releases-repo</id>
 			<name>a0t6qk8gmmphw-artifactory-primary-0-releases</name>
-			<url>https://devtime.jfrog.io/artifactory/dev-time-release-local</url>
+			<url>https://devtime.jfrog.io/artifactory/devtime-release</url>
 		</repository>
 		<snapshotRepository>
 			<id>devtime-snapshots-repo</id>
@@ -470,7 +470,7 @@
 		<!-- SNAPSHOT repository for our dependencies -->
 		<repository>
 			<id>devtime-snapshots-repo</id>
-			<name>devtime-snapshot-local</name>
+			<name>devtime-snapshot</name>
 			<url>https://devtime.jfrog.io/artifactory/devtime-snapshot</url>
 			<layout>default</layout>
 			<releases>
@@ -486,7 +486,7 @@
 		<!-- RELEASE repository for our dependencies -->
 		<repository>
 			<id>devtime-releases-repo</id>
-			<name>devtime-release-local</name>
+			<name>devtime-release</name>
 			<url>https://devtime.jfrog.io/artifactory/devtime-release</url>
 			<layout>default</layout>
 			<releases>
@@ -513,7 +513,7 @@
 		<!-- SNAPSHOT repository for own plugin dependencies -->
 		<pluginRepository>
 			<id>devtime-snapshots-repo</id>
-			<name>devtime-snapshot-local</name>
+			<name>devtime-snapshot</name>
 			<url>https://devtime.jfrog.io/artifactory/devtime-snapshot</url>
 			<layout>default</layout>
 			<releases>
@@ -529,7 +529,7 @@
 		<!-- RELEASE repository for own plugin dependencies -->
 		<pluginRepository>
 			<id>devtime-releases-repo</id>
-			<name>devtime-release-local</name>
+			<name>devtime-release</name>
 			<url>https://devtime.jfrog.io/artifactory/devtime-release</url>
 			<layout>default</layout>
 			<releases>
