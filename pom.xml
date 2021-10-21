@@ -26,6 +26,7 @@
 	</developers>
 
 	<scm>
+		<connection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</connection>
 		<developerConnection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</developerConnection>
 		<url>https://github.com/dev-time-tpw/parent-pom</url>
 		<tag>HEAD</tag>
@@ -67,18 +68,23 @@
 		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version> <!-- EPL-2.0 (?) -->
 		<jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version> <!-- EPL 2.0 -->
 		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version> <!-- Apache License -->
+		<maven-changes-plugin.version>2.12.1</maven-changes-plugin.version> <!-- Apache License -->
+		<maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version> <!-- Apache License -->
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version> <!-- Apache License -->
 		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version> <!-- Apache License -->
 		<maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version> <!-- Apache License -->
 		<maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version> <!-- Apache License -->
 		<maven-javadoc-plugin.version>3.3.1</maven-javadoc-plugin.version> <!-- Apache License -->
+		<maven-jxr-plugin.version>3.1.1</maven-jxr-plugin.version> <!-- Apache License -->
 		<maven-project-info-reports-plugin.version>3.1.2</maven-project-info-reports-plugin.version> <!-- Apache License -->
 		<maven-release-plugin.version>3.0.0-M4</maven-release-plugin.version> <!-- Apache License -->
 		<maven-site-plugin.version>3.9.1</maven-site-plugin.version> <!-- Apache License -->
 		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version> <!-- Apache License -->
 		<maven-war-plugin.version>3.3.1</maven-war-plugin.version> <!-- Apache License -->
-		<wagon-ssh.version>3.4.3</wagon-ssh.version><!-- Apache License -->
-		<wagon-ftp.version>3.4.3</wagon-ftp.version><!-- Apache License -->
+		<sonar-maven-plugin.version>3.9.0.2155</sonar-maven-plugin.version> <!-- LGPL 3.0 -->
+		<wagon-ssh.version>3.4.3</wagon-ssh.version> <!-- Apache License -->
+		<wagon-ftp.version>3.4.3</wagon-ftp.version> <!-- Apache License -->
+		<taglist-maven-plugin.version>2.4</taglist-maven-plugin.version> <!-- Apache License -->
 
 		<!-- =================== -->
 		<!-- Common dependencies -->
@@ -702,6 +708,19 @@
 										<ignore />
 									</action>
 								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-checkstyle-plugin</artifactId>
+										<versionRange>[3.1.2,)</versionRange>
+										<goals>
+											<goal>check</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
 					</configuration>
@@ -712,6 +731,35 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-assembly-plugin</artifactId>
 					<version>${maven-assembly-plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-changes-plugin</artifactId>
+					<version>${maven-changes-plugin.version}</version>
+				</plugin>
+
+				<!-- Runs several static code analysis -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>${maven-checkstyle-plugin.version}</version>
+					<configuration>
+						<configLocation>google_checks.xml</configLocation>
+						<encoding>UTF-8</encoding>
+						<consoleOutput>true</consoleOutput>
+						<failsOnError>true</failsOnError>
+						<linkXRef>false</linkXRef>
+					</configuration>
+					<executions>
+						<execution>
+							<id>validate</id>
+							<phase>validate</phase>
+							<goals>
+								<goal>check</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 
 				<!-- Several compile configuration for all projects -->
@@ -764,22 +812,24 @@
 					<version>${maven-failsafe-plugin.version}</version>
 				</plugin>
 
-				<!-- Supports creation of javaDoc API documents -->
+				<!-- Supports creation of JavaDoc API documents -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<version>${maven-javadoc-plugin.version}</version>
-					<executions>
-						<execution>
-							<id>aggregate</id>
-							<goals>
-								<goal>aggregate</goal>
-							</goals>
-							<phase>site</phase>
-							<configuration>
-							</configuration>
-						</execution>
-					</executions>
+					<configuration>
+						<notimestamp>true</notimestamp>
+						<quiet>true</quiet>
+						<detectLinks>true</detectLinks>
+						<locale>en</locale>
+					</configuration>
+				</plugin>
+
+				<!-- Enables source code cross references -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jxr-plugin</artifactId>
+					<version>${maven-jxr-plugin.version}</version>
 				</plugin>
 
 				<!-- Enables project information in maven sites -->
@@ -805,7 +855,7 @@
 					<artifactId>maven-site-plugin</artifactId>
 					<version>${maven-site-plugin.version}</version>
 					<configuration>
-					<locales>en,de</locales>
+						<locales>en,de</locales>
 					</configuration>
 					<dependencies>
 						<dependency>
@@ -828,11 +878,32 @@
 					<version>${maven-surefire-plugin.version}</version>
 				</plugin>
 
+				<!-- Plugin that reports results of unit tests -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-report-plugin</artifactId>
+					<version>${maven-surefire-plugin.version}</version>
+				</plugin>
+
 				<!-- Enables creation of WAR container -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
 					<version>${maven-war-plugin.version}</version>
+				</plugin>
+
+				<!-- Enables SonarQube/SonarCloud Scanner -->
+				<plugin>
+					<groupId>org.sonarsource.scanner.maven</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>${sonar-maven-plugin.version}</version>
+				</plugin>
+
+				<!-- Enables tracking of different tags -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>taglist-maven-plugin</artifactId>
+					<version>${taglist-maven-plugin.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -849,6 +920,10 @@
 			<plugin>
 				<groupId>org.eclipse.m2e</groupId>
 				<artifactId>lifecycle-mapping</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -882,6 +957,10 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -889,11 +968,156 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changes-plugin</artifactId>
+				<configuration>
+					<!-- TODO add github report -->
+					<!-- see: https://maven.apache.org/plugins/maven-changes-plugin/examples/configuring-github-report.html -->
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>github-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>checkstyle</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<id>default</id>
+						<reports>
+							<report>javadoc</report>
+						</reports>
+					</reportSet>
+					<reportSet>
+						<id>aggregate</id>
+						<reports>
+							<report>aggregate</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<configuration></configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>index</report>
+							<report>summary</report>
+							<report>dependency-info</report>
+							<report>modules</report>
+							<report>team</report>
+							<report>scm</report>
+							<report>issue-management</report>
+							<report>mailing-lists</report>
+							<report>dependency-management</report>
+							<report>dependencies</report>
+							<report>dependency-convergence</report>
+							<report>ci-management</report>
+							<report>plugin-management</report>
+							<report>plugins</report>
+							<report>distribution-management</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<configuration>
+					<aggregate>true</aggregate>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>jxr-no-fork</report>
+						</reports>
+					</reportSet>
+					<reportSet>
+						<id>aggregate</id>
+						<reports>
+							<report>aggregate</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<!-- Taglist Plugin must be executed after JXR Plugin -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+				<configuration>
+					<tagListOptions>
+						<tagClasses>
+							<tagClass>
+								<displayName>FIXME Work</displayName>
+								<tags>
+									<tag>
+										<matchString>fixme</matchString>
+										<matchType>ignoreCase</matchType>
+									</tag>
+									<tag>
+										<matchString>@fixme</matchString>
+										<matchType>ignoreCase</matchType>
+									</tag>
+								</tags>
+							</tagClass>
+							<tagClass>
+								<displayName>Todo Work</displayName>
+								<tags>
+									<tag>
+										<matchString>todo</matchString>
+										<matchType>ignoreCase</matchType>
+									</tag>
+									<tag>
+										<matchString>@todo</matchString>
+										<matchType>ignoreCase</matchType>
+									</tag>
+								</tags>
+							</tagClass>
+							<tagClass>
+								<displayName>XXX Work</displayName>
+								<tags>
+									<tag>
+										<matchString>xxx</matchString>
+										<matchType>ignoreCase</matchType>
+									</tag>
+									<tag>
+										<matchString>@xxx</matchString>
+										<matchType>ignoreCase</matchType>
+									</tag>
+								</tags>
+							</tagClass>
+							<tagClass>
+								<displayName>Deprecated Work</displayName>
+								<tags>
+									<tag>
+										<matchString>@deprecated</matchString>
+										<matchType>ignoreCase</matchType>
+									</tag>
+								</tags>
+							</tagClass>
+						</tagClasses>
+					</tagListOptions>
+				</configuration>
 			</plugin>
 		</plugins>
 	</reporting>
