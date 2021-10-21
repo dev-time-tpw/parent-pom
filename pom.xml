@@ -31,8 +31,12 @@
 		<tag>HEAD</tag>
 	</scm>
 
-	<!-- Used by mvn deploy to deploy artifacts into the JFrog Artifactory -->
+	<!-- Used by mvn deploy to deploy artifacts into several repositories -->
 	<distributionManagement>
+		<site>
+			<id>devtime-sites</id>
+			<url>${MAVEN_SITE_URL}</url>
+		</site>
 		<repository>
 			<id>devtime-releases-repo</id>
 			<name>a0t6qk8gmmphw-artifactory-primary-0-releases</name>
@@ -67,10 +71,14 @@
 		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version> <!-- Apache License -->
 		<maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version> <!-- Apache License -->
 		<maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version> <!-- Apache License -->
-		<maven-javadoc-plugin.version>3.3.0</maven-javadoc-plugin.version> <!-- Apache License -->
+		<maven-javadoc-plugin.version>3.3.1</maven-javadoc-plugin.version> <!-- Apache License -->
+		<maven-project-info-reports-plugin.version>3.1.2</maven-project-info-reports-plugin.version> <!-- Apache License -->
 		<maven-release-plugin.version>3.0.0-M4</maven-release-plugin.version> <!-- Apache License -->
+		<maven-site-plugin.version>3.9.1</maven-site-plugin.version> <!-- Apache License -->
 		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version> <!-- Apache License -->
 		<maven-war-plugin.version>3.3.1</maven-war-plugin.version> <!-- Apache License -->
+		<wagon-ssh.version>3.4.3</wagon-ssh.version><!-- Apache License -->
+		<wagon-ftp.version>3.4.3</wagon-ftp.version><!-- Apache License -->
 
 		<!-- =================== -->
 		<!-- Common dependencies -->
@@ -558,6 +566,12 @@
 			<resource>
 				<directory>src/main/resources</directory>
 			</resource>
+			<resource>
+				<directory>src/site/markdown</directory>
+			</resource>
+			<resource>
+				<directory>src/site/resources</directory>
+			</resource>
 		</resources>
 		<!-- Default maven test resources structure -->
 		<testResources>
@@ -768,6 +782,13 @@
 					</executions>
 				</plugin>
 
+				<!-- Enables project information in maven sites -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>${maven-project-info-reports-plugin.version}</version>
+				</plugin>
+
 				<!-- Enables creation of releases of our artifacts -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -776,6 +797,28 @@
 					<configuration>
 						<tagNameFormat>v@{project.version}</tagNameFormat>
 					</configuration>
+				</plugin>
+
+				<!-- Creates maven sites -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>${maven-site-plugin.version}</version>
+					<configuration>
+					<locales>en,de</locales>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.maven.wagon</groupId>
+							<artifactId>wagon-ssh</artifactId>
+							<version>${wagon-ssh.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>org.apache.maven.wagon</groupId>
+							<artifactId>wagon-ftp</artifactId>
+							<version>${wagon-ftp.version}</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 
 				<!-- Plugin that runs unit tests -->
@@ -833,8 +876,25 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>
