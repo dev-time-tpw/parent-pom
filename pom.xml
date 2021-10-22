@@ -65,12 +65,14 @@
 
 		<!-- Plugin versions -->
 		<artifactory-maven-plugin.version>3.2.3</artifactory-maven-plugin.version> <!-- Apache License -->
+		<build-helper-maven-plugin.version>3.2.0</build-helper-maven-plugin.version> <!-- MIT -->
 		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version> <!-- EPL-2.0 (?) -->
 		<jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version> <!-- EPL 2.0 -->
 		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version> <!-- Apache License -->
 		<maven-changes-plugin.version>2.12.1</maven-changes-plugin.version> <!-- Apache License -->
 		<maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version> <!-- Apache License -->
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version> <!-- Apache License -->
+		<maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version> <!-- Apache License -->
 		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version> <!-- Apache License -->
 		<maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version> <!-- Apache License -->
 		<maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version> <!-- Apache License -->
@@ -78,6 +80,7 @@
 		<maven-jxr-plugin.version>3.1.1</maven-jxr-plugin.version> <!-- Apache License -->
 		<maven-project-info-reports-plugin.version>3.1.2</maven-project-info-reports-plugin.version> <!-- Apache License -->
 		<maven-release-plugin.version>3.0.0-M4</maven-release-plugin.version> <!-- Apache License -->
+		<maven-resources-plugin.version>3.2.0</maven-resources-plugin.version> <!-- Apache License -->
 		<maven-site-plugin.version>3.9.1</maven-site-plugin.version> <!-- Apache License -->
 		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version> <!-- Apache License -->
 		<maven-war-plugin.version>3.3.1</maven-war-plugin.version> <!-- Apache License -->
@@ -85,6 +88,12 @@
 		<wagon-ssh.version>3.4.3</wagon-ssh.version> <!-- Apache License -->
 		<wagon-ftp.version>3.4.3</wagon-ftp.version> <!-- Apache License -->
 		<taglist-maven-plugin.version>2.4</taglist-maven-plugin.version> <!-- Apache License -->
+
+		<!-- ===================== -->
+		<!-- dev|time dependencies -->
+		<!-- ===================== -->
+		<checkstyle-config.version>0.0.1-SNAPSHOT</checkstyle-config.version> <!-- Apache License -->
+		<java-utils.version>0.0.1-SNAPSHOT</java-utils.version>
 
 		<!-- =================== -->
 		<!-- Common dependencies -->
@@ -132,11 +141,26 @@
 		<log4j-slf4j-impl.version>2.14.1</log4j-slf4j-impl.version> <!-- Apache License -->
 		<slf4j-api.version>1.7.32</slf4j-api.version>
 
+		<!-- Use the template below to override the checkstyle_configuration_file property in all java based modules -->
+		<!-- <checkstyle_configuration_file>${project.build.directory}/generated-resources/devtime_checks.xml</checkstyle_configuration_file> -->
+		<checkstyle_configuration_file>google_checks.xml</checkstyle_configuration_file>
+		<checkstyle.version>9.0.1</checkstyle.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
+
+			<!-- ===================== -->
+			<!-- dev|time dependencies -->
+			<!-- ===================== -->
+
+			<!-- checkstyle-config: Contains checkstyle configuration for all dev|time projects -->
+			<dependency>
+				<groupId>de.devtime.common</groupId>
+				<artifactId>checkstyle-config</artifactId>
+				<version>${checkstyle-config.version}</version>
+			</dependency>
 
 			<!-- =================== -->
 			<!-- Common dependencies -->
@@ -366,7 +390,6 @@
 				<scope>test</scope>
 			</dependency>
 
-
 			<!-- ==================== -->
 			<!-- Logging Dependencies -->
 			<!-- ==================== -->
@@ -578,6 +601,12 @@
 			<resource>
 				<directory>src/site/resources</directory>
 			</resource>
+			<resource>
+				<directory>${project.build.directory}/generated-sources</directory>
+			</resource>
+			<resource>
+				<directory>${project.build.directory}/generated-resources</directory>
+			</resource>
 		</resources>
 		<!-- Default maven test resources structure -->
 		<testResources>
@@ -664,6 +693,13 @@
 					</executions>
 				</plugin>
 
+				<!-- This plugin provides several nice feature for build tasks -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>${build-helper-maven-plugin.version}</version>
+				</plugin>
+
 				<!-- This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -721,6 +757,19 @@
 										<ignore></ignore>
 									</action>
 								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-dependency-plugin</artifactId>
+										<versionRange>[3.2.0,)</versionRange>
+										<goals>
+											<goal>unpack</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
 					</configuration>
@@ -745,7 +794,7 @@
 					<artifactId>maven-checkstyle-plugin</artifactId>
 					<version>${maven-checkstyle-plugin.version}</version>
 					<configuration>
-						<configLocation>google_checks.xml</configLocation>
+						<configLocation>${checkstyle_configuration_file}</configLocation>
 						<encoding>UTF-8</encoding>
 						<consoleOutput>true</consoleOutput>
 						<failsOnError>true</failsOnError>
@@ -753,13 +802,20 @@
 					</configuration>
 					<executions>
 						<execution>
-							<id>validate</id>
-							<phase>validate</phase>
+							<id>run checkstyle</id>
+							<phase>test</phase>
 							<goals>
 								<goal>check</goal>
 							</goals>
 						</execution>
 					</executions>
+					<dependencies>
+						<dependency>
+							<groupId>com.puppycrawl.tools</groupId>
+							<artifactId>checkstyle</artifactId>
+							<version>${checkstyle.version}</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 
 				<!-- Several compile configuration for all projects -->
@@ -776,6 +832,33 @@
 						<fork>true</fork>
 						<encoding>${project.build.sourceEncoding}</encoding>
 					</configuration>
+				</plugin>
+
+				<!-- Unpack the checkstyle configuration from the central dependency -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${maven-dependency-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>unpack devtime checkstyle config</id>
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>unpack</goal>
+							</goals>
+							<configuration>
+								<artifactItems>
+									<artifactItem>
+										<groupId>de.devtime.common</groupId>
+										<artifactId>checkstyle-config</artifactId>
+										<overWrite>true</overWrite>
+										<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
+										<includes>devtime_checks.xml</includes>
+									</artifactItem>
+								</artifactItems>
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
 
 				<!-- Simple way to deploy artifacts in a artifactory -->
@@ -841,6 +924,13 @@
 					<configuration>
 						<tagNameFormat>v@{project.version}</tagNameFormat>
 					</configuration>
+				</plugin>
+
+				<!-- Enables additional source directories for generated sources -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources-plugin.version}</version>
 				</plugin>
 
 				<!-- Creates maven sites -->
@@ -925,6 +1015,10 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
 			</plugin>
 			<plugin>
@@ -942,6 +1036,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
