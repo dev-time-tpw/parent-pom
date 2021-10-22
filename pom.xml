@@ -70,7 +70,7 @@
 		<jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version> <!-- EPL 2.0 -->
 		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version> <!-- Apache License -->
 		<maven-changes-plugin.version>2.12.1</maven-changes-plugin.version> <!-- Apache License -->
-<!-- 		<maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version> Apache License -->
+		<!-- <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version> Apache License -->
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version> <!-- Apache License -->
 		<maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version> <!-- Apache License -->
 		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version> <!-- Apache License -->
@@ -92,7 +92,7 @@
 		<!-- ===================== -->
 		<!-- dev|time dependencies -->
 		<!-- ===================== -->
-<!-- 		<checkstyle-config.version>0.0.1-SNAPSHOT</checkstyle-config.version> Apache License -->
+		<!-- <checkstyle-config.version>0.0.1-SNAPSHOT</checkstyle-config.version> Apache License -->
 		<java-utils.version>0.0.1-SNAPSHOT</java-utils.version>
 
 		<!-- =================== -->
@@ -143,8 +143,8 @@
 
 		<!-- Use the template below to override the checkstyle_configuration_file property in all java based modules -->
 		<!-- <checkstyle_configuration_file>${project.build.directory}/generated-resources/devtime_checks.xml</checkstyle_configuration_file> -->
-<!-- 		<checkstyle_configuration_file>google_checks.xml</checkstyle_configuration_file> -->
-<!-- 		<checkstyle.version>9.0.1</checkstyle.version> -->
+		<!-- <checkstyle_configuration_file>google_checks.xml</checkstyle_configuration_file> -->
+		<!-- <checkstyle.version>9.0.1</checkstyle.version> -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -156,11 +156,11 @@
 			<!-- ===================== -->
 
 			<!-- checkstyle-config: Contains checkstyle configuration for all dev|time projects -->
-<!-- 			<dependency> -->
-<!-- 				<groupId>de.devtime.common</groupId> -->
-<!-- 				<artifactId>checkstyle-config</artifactId> -->
-<!-- 				<version>${checkstyle-config.version}</version> -->
-<!-- 			</dependency> -->
+			<!-- <dependency> -->
+			<!-- <groupId>de.devtime.common</groupId> -->
+			<!-- <artifactId>checkstyle-config</artifactId> -->
+			<!-- <version>${checkstyle-config.version}</version> -->
+			<!-- </dependency> -->
 
 			<!-- =================== -->
 			<!-- Common dependencies -->
@@ -744,19 +744,19 @@
 										<ignore />
 									</action>
 								</pluginExecution>
-<!-- 								<pluginExecution> -->
-<!-- 									<pluginExecutionFilter> -->
-<!-- 										<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 										<artifactId>maven-checkstyle-plugin</artifactId> -->
-<!-- 										<versionRange>[3.1.2,)</versionRange> -->
-<!-- 										<goals> -->
-<!-- 											<goal>check</goal> -->
-<!-- 										</goals> -->
-<!-- 									</pluginExecutionFilter> -->
-<!-- 									<action> -->
-<!-- 										<ignore></ignore> -->
-<!-- 									</action> -->
-<!-- 								</pluginExecution> -->
+								<!-- <pluginExecution> -->
+								<!-- <pluginExecutionFilter> -->
+								<!-- <groupId>org.apache.maven.plugins</groupId> -->
+								<!-- <artifactId>maven-checkstyle-plugin</artifactId> -->
+								<!-- <versionRange>[3.1.2,)</versionRange> -->
+								<!-- <goals> -->
+								<!-- <goal>check</goal> -->
+								<!-- </goals> -->
+								<!-- </pluginExecutionFilter> -->
+								<!-- <action> -->
+								<!-- <ignore></ignore> -->
+								<!-- </action> -->
+								<!-- </pluginExecution> -->
 								<pluginExecution>
 									<pluginExecutionFilter>
 										<groupId>org.apache.maven.plugins</groupId>
@@ -789,34 +789,34 @@
 				</plugin>
 
 				<!-- Runs several static code analysis -->
-<!-- 				<plugin> -->
-<!-- 					<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 					<artifactId>maven-checkstyle-plugin</artifactId> -->
-<!-- 					<version>${maven-checkstyle-plugin.version}</version> -->
-<!-- 					<configuration> -->
-<!-- 						<configLocation>${checkstyle_configuration_file}</configLocation> -->
-<!-- 						<encoding>UTF-8</encoding> -->
-<!-- 						<consoleOutput>true</consoleOutput> -->
-<!-- 						<failsOnError>true</failsOnError> -->
-<!-- 						<linkXRef>true</linkXRef> -->
-<!-- 					</configuration> -->
-<!-- 					<executions> -->
-<!-- 						<execution> -->
-<!-- 							<id>run checkstyle</id> -->
-<!-- 							<phase>test</phase> -->
-<!-- 							<goals> -->
-<!-- 								<goal>check</goal> -->
-<!-- 							</goals> -->
-<!-- 						</execution> -->
-<!-- 					</executions> -->
-<!-- 					<dependencies> -->
-<!-- 						<dependency> -->
-<!-- 							<groupId>com.puppycrawl.tools</groupId> -->
-<!-- 							<artifactId>checkstyle</artifactId> -->
-<!-- 							<version>${checkstyle.version}</version> -->
-<!-- 						</dependency> -->
-<!-- 					</dependencies> -->
-<!-- 				</plugin> -->
+				<!-- <plugin> -->
+				<!-- <groupId>org.apache.maven.plugins</groupId> -->
+				<!-- <artifactId>maven-checkstyle-plugin</artifactId> -->
+				<!-- <version>${maven-checkstyle-plugin.version}</version> -->
+				<!-- <configuration> -->
+				<!-- <configLocation>${checkstyle_configuration_file}</configLocation> -->
+				<!-- <encoding>UTF-8</encoding> -->
+				<!-- <consoleOutput>true</consoleOutput> -->
+				<!-- <failsOnError>true</failsOnError> -->
+				<!-- <linkXRef>true</linkXRef> -->
+				<!-- </configuration> -->
+				<!-- <executions> -->
+				<!-- <execution> -->
+				<!-- <id>run checkstyle</id> -->
+				<!-- <phase>test</phase> -->
+				<!-- <goals> -->
+				<!-- <goal>check</goal> -->
+				<!-- </goals> -->
+				<!-- </execution> -->
+				<!-- </executions> -->
+				<!-- <dependencies> -->
+				<!-- <dependency> -->
+				<!-- <groupId>com.puppycrawl.tools</groupId> -->
+				<!-- <artifactId>checkstyle</artifactId> -->
+				<!-- <version>${checkstyle.version}</version> -->
+				<!-- </dependency> -->
+				<!-- </dependencies> -->
+				<!-- </plugin> -->
 
 				<!-- Several compile configuration for all projects -->
 				<plugin>
@@ -835,31 +835,31 @@
 				</plugin>
 
 				<!-- Unpack the checkstyle configuration from the central dependency -->
-<!-- 				<plugin> -->
-<!-- 					<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 					<artifactId>maven-dependency-plugin</artifactId> -->
-<!-- 					<version>${maven-dependency-plugin.version}</version> -->
-<!-- 					<executions> -->
-<!-- 						<execution> -->
-<!-- 							<id>unpack devtime checkstyle config</id> -->
-<!-- 							<phase>generate-resources</phase> -->
-<!-- 							<goals> -->
-<!-- 								<goal>unpack</goal> -->
-<!-- 							</goals> -->
-<!-- 							<configuration> -->
-<!-- 								<artifactItems> -->
-<!-- 									<artifactItem> -->
-<!-- 										<groupId>de.devtime.common</groupId> -->
-<!-- 										<artifactId>checkstyle-config</artifactId> -->
-<!-- 										<overWrite>true</overWrite> -->
-<!-- 										<outputDirectory>${project.build.directory}/generated-resources</outputDirectory> -->
-<!-- 										<includes>devtime_checks.xml</includes> -->
-<!-- 									</artifactItem> -->
-<!-- 								</artifactItems> -->
-<!-- 							</configuration> -->
-<!-- 						</execution> -->
-<!-- 					</executions> -->
-<!-- 				</plugin> -->
+				<!-- <plugin> -->
+				<!-- <groupId>org.apache.maven.plugins</groupId> -->
+				<!-- <artifactId>maven-dependency-plugin</artifactId> -->
+				<!-- <version>${maven-dependency-plugin.version}</version> -->
+				<!-- <executions> -->
+				<!-- <execution> -->
+				<!-- <id>unpack devtime checkstyle config</id> -->
+				<!-- <phase>generate-resources</phase> -->
+				<!-- <goals> -->
+				<!-- <goal>unpack</goal> -->
+				<!-- </goals> -->
+				<!-- <configuration> -->
+				<!-- <artifactItems> -->
+				<!-- <artifactItem> -->
+				<!-- <groupId>de.devtime.common</groupId> -->
+				<!-- <artifactId>checkstyle-config</artifactId> -->
+				<!-- <overWrite>true</overWrite> -->
+				<!-- <outputDirectory>${project.build.directory}/generated-resources</outputDirectory> -->
+				<!-- <includes>devtime_checks.xml</includes> -->
+				<!-- </artifactItem> -->
+				<!-- </artifactItems> -->
+				<!-- </configuration> -->
+				<!-- </execution> -->
+				<!-- </executions> -->
+				<!-- </plugin> -->
 
 				<!-- Simple way to deploy artifacts in a artifactory -->
 				<plugin>
@@ -1005,10 +1005,10 @@
 				<groupId>org.eclipse.m2e</groupId>
 				<artifactId>lifecycle-mapping</artifactId>
 			</plugin>
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-checkstyle-plugin</artifactId> -->
-<!-- 			</plugin> -->
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-checkstyle-plugin</artifactId> -->
+			<!-- </plugin> -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -1073,22 +1073,22 @@
 					</reportSet>
 				</reportSets>
 			</plugin>
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-checkstyle-plugin</artifactId> -->
-<!-- 				<reportSets> -->
-<!-- 					<reportSet> -->
-<!-- 						<reports> -->
-<!-- 							<report>checkstyle</report> -->
-<!-- 						</reports> -->
-<!-- 					</reportSet> -->
-<!-- 					<reportSet> -->
-<!-- 						<reports> -->
-<!-- 							<report>checkstyle-aggregate</report> -->
-<!-- 						</reports> -->
-<!-- 					</reportSet> -->
-<!-- 				</reportSets> -->
-<!-- 			</plugin> -->
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-checkstyle-plugin</artifactId> -->
+			<!-- <reportSets> -->
+			<!-- <reportSet> -->
+			<!-- <reports> -->
+			<!-- <report>checkstyle</report> -->
+			<!-- </reports> -->
+			<!-- </reportSet> -->
+			<!-- <reportSet> -->
+			<!-- <reports> -->
+			<!-- <report>checkstyle-aggregate</report> -->
+			<!-- </reports> -->
+			<!-- </reportSet> -->
+			<!-- </reportSets> -->
+			<!-- </plugin> -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
