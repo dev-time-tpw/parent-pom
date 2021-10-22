@@ -749,7 +749,7 @@
 						<encoding>UTF-8</encoding>
 						<consoleOutput>true</consoleOutput>
 						<failsOnError>true</failsOnError>
-						<linkXRef>false</linkXRef>
+						<linkXRef>true</linkXRef>
 					</configuration>
 					<executions>
 						<execution>
@@ -817,12 +817,6 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<version>${maven-javadoc-plugin.version}</version>
-					<configuration>
-						<notimestamp>true</notimestamp>
-						<quiet>true</quiet>
-						<detectLinks>true</detectLinks>
-						<locale>en</locale>
-					</configuration>
 				</plugin>
 
 				<!-- Enables source code cross references -->
@@ -988,6 +982,11 @@
 					<reportSet>
 						<reports>
 							<report>checkstyle</report>
+						</reports>
+					</reportSet>
+					<reportSet>
+						<reports>
+							<report>checkstyle-aggregate</report>
 						</reports>
 					</reportSet>
 				</reportSets>
