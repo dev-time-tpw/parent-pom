@@ -121,13 +121,15 @@
 		<!-- Testing dependencies -->
 		<!-- ==================== -->
 		<awaitility.version>4.1.0</awaitility.version> <!-- Apache License -->
-		<h2database.version>1.4.200</h2database.version> <!-- MPL 2.0 / EPL 1.0 (nur Verwendung) -->
+		<dbunit.version>2.7.2</dbunit.version> <!-- LGPL 2.1 -->
+		<h2database.version>1.4.200</h2database.version> <!-- MPL 2.0 / EPL 1.0 (only usage) -->
 		<hamcrest-all.version>1.3</hamcrest-all.version> <!-- BSD 2 License -->
 		<hamcrest-date.version>2.0.7</hamcrest-date.version> <!-- BSD 2 License -->
 		<hamcrest-jackson.version>1.2.0</hamcrest-jackson.version> <!-- Apache License -->
 		<hamcrest-pojo.version>1.2.0</hamcrest-pojo.version> <!-- Apache License -->
-		<jacoco.core.version>0.8.7</jacoco.core.version> <!-- Eclipse Public License 2.0 (nur Verwendung) -->
-		<junit4.version>4.13.1</junit4.version> <!-- Eclipse Public License 1.0 (nur Verwendung) -->
+		<jacoco.core.version>0.8.7</jacoco.core.version> <!-- Eclipse Public License 2.0 (only usage) -->
+		<junit4.version>4.13.1</junit4.version> <!-- Eclipse Public License 1.0 (only usage) -->
+		<mockftpserver.version>2.7.1</mockftpserver.version> <!-- Apache License -->
 		<mockito-all.version>1.10.19</mockito-all.version> <!-- MIT License -->
 		<spotify-java-hamcrest.version>1.2.0</spotify-java-hamcrest.version> <!-- Apache License -->
 
@@ -291,6 +293,13 @@
 				<version>${awaitility.version}</version>
 				<scope>test</scope>
 			</dependency>
+			<!-- dbunit: Useful junit extension for DB testing -->
+			<dependency>
+				<groupId>org.dbunit</groupId>
+				<artifactId>dbunit</artifactId>
+				<version>${dbunit.version}</version>
+				<scope>test</scope>
+			</dependency>
 			<!-- h2: Useful embedded database -->
 			<dependency>
 				<groupId>com.h2database</groupId>
@@ -370,6 +379,14 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
+			<!-- MockFtpServer: Useful mocking framework for FTP -->
+			<dependency>
+				<groupId>org.mockftpserver</groupId>
+				<artifactId>MockFtpServer</artifactId>
+				<version>${mockftpserver.version}</version>
+				<scope>test</scope>
+			</dependency>
+
 			<!-- mockito-all: Useful mocking framework -->
 			<dependency>
 				<groupId>org.mockito</groupId>
