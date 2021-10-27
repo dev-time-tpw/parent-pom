@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.6.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.6.0 http://maven.apache.org/xsd/decoration-1.6.0.xsd">
+
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>${maven-fluido-skin.version}</version>
+	</skin>
+
+	<bannerRight>
+		<src>https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-logo-simple-dark_282x50.png</src>
+	</bannerRight>
+
+	<version position="right" />
+	<publishDate position="right" />
+
+	<body>
+		<menu name="Overview">
+			<item name="Welcome" href="welcome.html" />
+			<item name="License" href="https://www.apache.org/licenses/LICENSE-2.0" />
+		</menu>
+
+		<menu ref="modules" />
+		<menu ref="reports" />
+
+		<footer><![CDATA[Copyright (c) 2021 <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x15.png" />. All rights reserved.]]></footer>
+	</body>
+</project>
