@@ -1,9 +1,6 @@
-<center>
- 
+<p align="center">
 ![Parent-POM](https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/Parent-POM.png) 
- 
-</center>
-
+</p> 
 
 <center>
 
