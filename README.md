@@ -1,17 +1,25 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/Parent-POM.png">
+  <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/Parent-POM.png" />
 </p>
 
-<!-- remove on maven site - start -->
 <p align="center">
-<a href="https://github.com/dev-time-tpw/parent-pom/actions/workflows/build-job.yml" title="Build Job"><img src="https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20snapshot%20build-job?logo=GitHub&style=plastic"></a>
-<a href="https://github.com/dev-time-tpw/parent-pom/actions/workflows/quality-job.yml" title="Quality Job"><img src="https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20quality%20build-job?label=quality-build&logo=GitHub&style=plastic"></a>
-<a href="https://github.com/dev-time-tpw/parent-pom/blob/main/LICENSE" title="License"><img src="https://img.shields.io/github/license/dev-time-tpw/parent-pom?logo=GitHub&style=plastic"></a>
-<a href="https://github.com/dev-time-tpw/parent-pom" title="Last Commit"><img src="https://img.shields.io/github/last-commit/dev-time-tpw/parent-pom?logo=GitHub&style=plastic"></a>
+<a class="none" href="https://github.com/dev-time-tpw/parent-pom/actions/workflows/build-job.yml" title="Build Job">
+  <img src="https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20snapshot%20build-job?logo=GitHub&style=plastic" />
+</a>
+<a class="none" href="https://github.com/dev-time-tpw/parent-pom/actions/workflows/quality-job.yml" title="Quality Job">
+  <img src="https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20quality%20build-job?label=quality-build&logo=GitHub&style=plastic" />
+</a>
+<a class="none" href="https://github.com/dev-time-tpw/parent-pom/blob/main/LICENSE" title="License">
+  <img src="https://img.shields.io/github/license/dev-time-tpw/parent-pom?logo=GitHub&style=plastic" />
+</a>
+<a class="none" href="https://github.com/dev-time-tpw/parent-pom" title="Last Commit">
+  <img src="https://img.shields.io/github/last-commit/dev-time-tpw/parent-pom?logo=GitHub&style=plastic" />
+</a>
 <br />
-<a href="https://sonarcloud.io/dashboard?id=devtime_parent-pom" title="Quality Gate"><img src="https://img.shields.io/sonar/quality_gate/devtime_parent-pom?logo=SonarCloud&server=https%3A%2F%2Fsonarcloud.io&style=plastic"></a>
+<a class="none" href="https://sonarcloud.io/dashboard?id=devtime_parent-pom" title="Quality Gate">
+  <img src="https://img.shields.io/sonar/quality_gate/devtime_parent-pom?logo=SonarCloud&server=https%3A%2F%2Fsonarcloud.io&style=plastic" />
+</a>
 </p>
-<!-- remove on maven site - end -->
 
 <hr />
 <p align="center">
@@ -36,7 +44,7 @@ Hierfür setzen wir auf kostenlose Cloud Technologien:
 
 ## Über uns
 
-Die <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x12.png"> entwickelt freie open source Software. Dabei haben wir einen sehr hohen qualitativen Anspruch, der sich 
+Die <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x12.png" /> entwickelt freie open source Software. Dabei haben wir einen sehr hohen qualitativen Anspruch, der sich 
 sowohl in der Softwareentwicklung, als auch in der resultierenden Software widerspiegelt. Unser Team bringt langjährige
 Erfahrung aus folgenden Bereich mit:
 - Java Rich Clients (SWT, Swing, JavaFX)
@@ -47,7 +55,7 @@ Erfahrung aus folgenden Bereich mit:
 
 ## Lizenzierung
 
-Copyright (c) 2021 <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x12.png">.
+Copyright (c) 2021 <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x12.png" />.
 
 Lizenziert unter **Apache-Lizenz, Version 2.0** (die "Lizenz"). Sie dürfen diese Datei ausschließlich im Einklang mit 
 der Lizenz verwenden.

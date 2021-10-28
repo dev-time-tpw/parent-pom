@@ -1,25 +1,37 @@
-<center>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/Parent-POM.png" />
+</p>
 
-![Parent-POM](https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/Parent-POM.png) 
-
+<p align="center">
+<a class="none" href="https://github.com/dev-time-tpw/parent-pom/actions/workflows/build-job.yml" title="Build Job">
+  <img src="https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20snapshot%20build-job?logo&#61;GitHub&#38;style&#61;plastic" />
+</a>
+<a class="none" href="https://github.com/dev-time-tpw/parent-pom/actions/workflows/quality-job.yml" title="Quality Job">
+  <img src="https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20quality%20build-job?label&#61;quality-build&#38;logo&#61;GitHub&#38;style&#61;plastic" />
+</a>
+<a class="none" href="https://github.com/dev-time-tpw/parent-pom/blob/main/LICENSE" title="License">
+  <img src="https://img.shields.io/github/license/dev-time-tpw/parent-pom?logo&#61;GitHub&#38;style&#61;plastic" />
+</a>
+<a class="none" href="https://github.com/dev-time-tpw/parent-pom" title="Last Commit">
+  <img src="https://img.shields.io/github/last-commit/dev-time-tpw/parent-pom?logo&#61;GitHub&#38;style&#61;plastic" />
+</a>
 <br />
-
-[![Build Job](https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20snapshot%20build-job?logo=GitHub&style=plastic)](https://github.com/dev-time-tpw/parent-pom/actions/workflows/build-job.yml)
-[![Quality Job](https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20quality%20build-job?label=quality-build&logo=GitHub&style=plastic)](https://github.com/dev-time-tpw/parent-pom/actions/workflows/quality-job.yml)
-[![License](https://img.shields.io/github/license/dev-time-tpw/parent-pom?logo=GitHub&style=plastic)](https://github.com/dev-time-tpw/parent-pom/blob/main/LICENSE)
-[![Last commit](https://img.shields.io/github/last-commit/dev-time-tpw/parent-pom?logo=GitHub&style=plastic)](https://github.com/dev-time-tpw/parent-pom)<br />
-[![Quality gate](https://img.shields.io/sonar/quality_gate/devtime_parent-pom?logo=SonarCloud&server=https%3A%2F%2Fsonarcloud.io&style=plastic)](https://sonarcloud.io/dashboard?id=devtime_parent-pom)
-
-</center>
+<a class="none" href="https://sonarcloud.io/dashboard?id=devtime_parent-pom" title="Quality Gate">
+  <img src="https://img.shields.io/sonar/quality_gate/devtime_parent-pom?logo&#61;SonarCloud&#38;server&#61;https%3A%2F%2Fsonarcloud.io&#38;style&#61;plastic" />
+</a>
+</p>
 
 <hr />
-<center>
-    <a href="#über-dieses-projekt">Über dieses Projekt</a> • 
-    <a href="#über-uns">Über uns</a> •
-    <a href="#lizenzierung">Lizenzierung</a>
-</center>
+<p align="center">
+    <a class="none" href="#über-dieses-projekt">Über dieses Projekt</a> • 
+    <a class="none" href="#über-uns">Über uns</a> •
+    <a class="none" href="#lizenzierung">Lizenzierung</a>
+</p>
+<hr />
 
 ## Über dieses Projekt
+
+Test
 
 Das parent-pom Projekt ist ein maven Projekt, welches als Parent-POM für alle unsere hier veröffentlichten Java-Projekte 
 genutzt wird. Es enthält die wichtigsten Konfigurationen für unsere maven Projekte und unsere Werkzeuge mit denen wir
@@ -34,7 +46,7 @@ Hierfür setzen wir auf kostenlose Cloud Technologien:
 
 ## Über uns
 
-Die <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x15.png" /> entwickelt freie open source Software. Dabei haben wir einen sehr hohen qualitativen Anspruch, der sich 
+Die <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x12.png" /> entwickelt freie open source Software. Dabei haben wir einen sehr hohen qualitativen Anspruch, der sich 
 sowohl in der Softwareentwicklung, als auch in der resultierenden Software widerspiegelt. Unser Team bringt langjährige
 Erfahrung aus folgenden Bereich mit:
 - Java Rich Clients (SWT, Swing, JavaFX)
@@ -45,7 +57,7 @@ Erfahrung aus folgenden Bereich mit:
 
 ## Lizenzierung
 
-Copyright (c) 2021 <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x15.png" />.
+Copyright (c) 2021 <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x12.png" />.
 
 Lizenziert unter **Apache-Lizenz, Version 2.0** (die "Lizenz"). Sie dürfen diese Datei ausschließlich im Einklang mit 
 der Lizenz verwenden.

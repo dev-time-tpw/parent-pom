@@ -949,6 +949,49 @@
 		</pluginManagement>
 
 		<plugins>
+			
+			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>maven-replacer-plugin</artifactId>
+				<version>1.4.1</version>
+				<executions>
+					<execution>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<filesToInclude>README.md</filesToInclude>
+					<outputFile>src/site/markdown/welcome.md</outputFile>
+					<regex>true</regex>
+					<replacements>
+						<replacement>
+							<token>logo.GitHub.style.plastic</token>
+							<value>logo&#38;#61;GitHub&#38;#38;style&#38;#61;plastic</value>
+						</replacement>
+						<replacement>
+							<token>io.style.plastic</token>
+							<value>io&#38;#38;style&#38;#61;plastic</value>
+						</replacement>
+						<replacement>
+							<token>logo.SonarCloud.server.https</token>
+							<value>logo&#38;#61;SonarCloud&#38;#38;server&#38;#61;https</value>
+						</replacement>
+						<replacement>
+							<token>label.quality-build.</token>
+							<value>label&#38;#61;quality-build&#38;#38;</value>
+						</replacement>
+						<replacement>
+							<token>&#60;a href&#61;</token>
+							<value>&#60;a class&#61;"none" href&#61;</value>
+						</replacement>
+					</replacements>
+				</configuration>
+			</plugin>
+
+
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>

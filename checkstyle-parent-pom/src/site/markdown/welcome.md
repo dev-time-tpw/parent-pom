@@ -1,1 +1,1 @@
-# Welcome to dev|time #
+# Checkstyle parent-pom #
