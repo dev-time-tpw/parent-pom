@@ -2,6 +2,7 @@
 <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/Parent-POM.png">
 </p>
 
+<!-- remove on maven site - start -->
 <p align="center">
 <a href="https://github.com/dev-time-tpw/parent-pom/actions/workflows/build-job.yml" title="Build Job"><img src="https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20snapshot%20build-job?logo=GitHub&style=plastic"></a>
 <a href="https://github.com/dev-time-tpw/parent-pom/actions/workflows/quality-job.yml" title="Quality Job"><img src="https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20quality%20build-job?label=quality-build&logo=GitHub&style=plastic"></a>
@@ -10,6 +11,7 @@
 <br />
 <a href="https://sonarcloud.io/dashboard?id=devtime_parent-pom" title="Quality Gate"><img src="https://img.shields.io/sonar/quality_gate/devtime_parent-pom?logo=SonarCloud&server=https%3A%2F%2Fsonarcloud.io&style=plastic"></a>
 </p>
+<!-- remove on maven site - end -->
 
 <hr />
 <p align="center">

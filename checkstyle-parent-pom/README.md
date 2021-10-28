@@ -1,13 +1,11 @@
-<p align="center">
 <center>
  
 ![Parent-POM](https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/Parent-POM.png) 
  
 </center>
-</p>
+
 
 <center>
-<p align="center">
 
 [![Build Job](https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20snapshot%20build-job?logo=GitHub&style=plastic)](https://github.com/dev-time-tpw/parent-pom/actions/workflows/build-job.yml)
 [![Quality Job](https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20quality%20build-job?label=quality-build&logo=GitHub&style=plastic)](https://github.com/dev-time-tpw/parent-pom/actions/workflows/quality-job.yml)
@@ -15,6 +13,5 @@
 [![Last commit](https://img.shields.io/github/last-commit/dev-time-tpw/parent-pom?logo=GitHub&style=plastic)](https://github.com/dev-time-tpw/parent-pom)<br />
 [![Quality gate](https://img.shields.io/sonar/quality_gate/devtime_parent-pom?logo=SonarCloud&server=https%3A%2F%2Fsonarcloud.io&style=plastic)](https://sonarcloud.io/dashboard?id=devtime_parent-pom)
 
-</p>
 </center>
 <hr />
