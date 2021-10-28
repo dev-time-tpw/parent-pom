@@ -1,8 +1,4 @@
-<p align="center">
-
-![Parent-POM](https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/Parent-POM.png)
-
-</p> 
+<p align="center">![Parent-POM](https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/Parent-POM.png)</p> 
 
 <center>
 
