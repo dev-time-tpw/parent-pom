@@ -1,13 +1,8 @@
-<p align="center">
 <center>
- 
-![Parent-POM](https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/Parent-POM.png) 
- 
-</center>
-</p>
 
-<p align="center">
-<center>
+![Parent-POM](https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/Parent-POM.png) 
+
+<br />
 
 [![Build Job](https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20snapshot%20build-job?logo=GitHub&style=plastic)](https://github.com/dev-time-tpw/parent-pom/actions/workflows/build-job.yml)
 [![Quality Job](https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20quality%20build-job?label=quality-build&logo=GitHub&style=plastic)](https://github.com/dev-time-tpw/parent-pom/actions/workflows/quality-job.yml)
@@ -16,15 +11,13 @@
 [![Quality gate](https://img.shields.io/sonar/quality_gate/devtime_parent-pom?logo=SonarCloud&server=https%3A%2F%2Fsonarcloud.io&style=plastic)](https://sonarcloud.io/dashboard?id=devtime_parent-pom)
 
 </center>
-</p>
 
 <hr />
-<p align="center">
+<center>
     <a href="#über-dieses-projekt">Über dieses Projekt</a> • 
     <a href="#über-uns">Über uns</a> •
     <a href="#lizenzierung">Lizenzierung</a>
-</p>
-<hr />
+</center>
 
 ## Über dieses Projekt
 
