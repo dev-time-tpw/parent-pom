@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.devtime.common</groupId>
+		<artifactId>parent-pom</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>checkstyle-config</artifactId>
+	<packaging>jar</packaging>
+
+	<name>checkstyle config</name>
+	<description>Provide our own checkstyle configuration to be able to use this configuration in all our projects.</description>
+
+	<properties>
+		<checkstyle_configuration_file>src/main/resources/devtime_checks.xml</checkstyle_configuration_file>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-checkstyle-plugin</artifactId>
+			<version>3.1.2</version>
+		</dependency>
+	</dependencies>
+</project>

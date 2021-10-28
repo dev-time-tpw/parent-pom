@@ -5,7 +5,7 @@
 	<skin>
 		<groupId>org.apache.maven.skins</groupId>
 		<artifactId>maven-fluido-skin</artifactId>
-		<version>${maven-fluido-skin.version}</version>
+		<version>1.9</version>
 	</skin>
 
 	<bannerRight>
@@ -19,21 +19,20 @@
 
 		<breadcrumbs>
 			<item name="dev|time" href="http://dev-time.de/javadoc/welcome.html" />
+			<item name="Checkstyle configuration" href="index.html" />
 		</breadcrumbs>
+	
 
-		<menu>
-			<item name="Welcome" href="welcome.html" />
+		<menu ref="parent" />
+
+		<menu name="Overview">
+			<item name="Introduction" href="index.html" />
 			<item name="License" href="https://www.apache.org/licenses/LICENSE-2.0" />
 		</menu>
 
-		<menu name="Projects">
-			<item name="Java Utils" href="http://dev-time.de/javadoc/checkstyle-parent-pom/java-utils-build/index.html" />
-			<item name="Muphin Framework" href="http://dev-time.de/javadoc/checkstyle-parent-pom/muphin-build/index.html" />
-		</menu>
-
-		<menu ref="modules" />
 		<menu ref="reports" />
 
-		<footer><![CDATA[Copyright (c) 2021 <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x15.png" />. All rights reserved.]]></footer>
+		<footer><![CDATA[Copyright (c) 2021 <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x12.png" />. All rights reserved.]]></footer>
+
 	</body>
 </project>

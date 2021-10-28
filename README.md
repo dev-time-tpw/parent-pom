@@ -39,7 +39,7 @@ sowohl in der Softwareentwicklung, als auch in der resultierenden Software wider
 Erfahrung aus folgenden Bereich mit:
 - Java Rich Clients (SWT, Swing, JavaFX)
 - Java EE (Backend, Webservices, Persistence, Mehrschichten Architektur)
-- Datenbanken (Oracle, MSSQL Server, Postgres, MySQL, SQlite, H2)
+- Datenbanken (Oracle, MSSQL Server, PostgreSQL, MySQL, SQlite, H2)
 - Testmethoden (Entwicklertests (unit testing), Test Driven development (TDD), Behavior Driven Development (BDD))
 - Test-Frameworks (JUnit4, cucumber, serenity, Mockito, DBUnit, Hamcrest, uvm.)
 
