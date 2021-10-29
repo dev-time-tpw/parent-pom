@@ -67,6 +67,8 @@
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<sonar.organization>devtime</sonar.organization>
 		<sonar.projectKey>devtime_parent-pom</sonar.projectKey>
+		<!-- solution for StackOverflowError problem (@see: https://community.sonarsource.com/t/stackoverflowerror-at-defaultinputcomponent-equals/20324) -->
+		<sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
 
 		<!-- maven site skin versions -->
 		<maven-fluido-skin.version>1.9</maven-fluido-skin.version>
