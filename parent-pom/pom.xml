@@ -3,37 +3,22 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>de.devtime.common</groupId>
+	<parent>
+		<groupId>de.devtime.common</groupId>
+		<artifactId>devtime</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>dev|time</name>
+	<name>parent-pom</name>
 	<description>Contains common configuration and dependencies for all dev|time projects.</description>
-
-	<modules>
-		<module>checkstyle-config</module>
-		<module>checkstyle-parent-pom</module>
-	</modules>
-
-	<developers>
-		<developer>
-			<id>devtime</id>
-			<name>dev|time</name>
-			<email>dev.time.tpw@gmail.com</email>
-			<roles>
-				<role>Architect</role>
-				<role>Developer</role>
-				<role>Tester</role>
-			</roles>
-			<timezone>GMT+1</timezone>
-		</developer>
-	</developers>
 
 	<scm>
 		<connection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</connection>
 		<developerConnection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</developerConnection>
-		<url>https://github.com/dev-time-tpw/parent-pom</url>
+		<url>https://github.com/dev-time-tpw/parent-pom/parent-pom</url>
 		<tag>HEAD</tag>
 	</scm>
 

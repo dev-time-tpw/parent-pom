@@ -23,47 +23,86 @@
 
 <hr />
 <p align="center">
-    <a class="none" href="#über-dieses-projekt">Über dieses Projekt</a> • 
-    <a class="none" href="#über-uns">Über uns</a> •
-    <a class="none" href="#lizenzierung">Lizenzierung</a>
+    <a class="none" href="#about-this-account">About this account</a> • 
+    <a class="none" href="#about-the-parent-pom">About the parent-pom</a> • 
+    <a class="none" href="#licensing">Licensing</a>
 </p>
 <hr />
 
-## Über dieses Projekt
+## About this account
 
-Test
+On this account you will find projects on various topics from the fields of testing, current frameworks and libraries 
+in the Java and Maven context. Great emphasis is placed on comprehensibility and quality, so that everyone is able to 
+understand and use the examples and projects well.<br />
+To achieve this, an open source platform was chosen. Free quality tools like [SonarCloud](Sonarcloud.io) but also 
+Checkstyle are used to ensure the highest possible quality. Using the GitHub Actions and Maven, as well as the JUnit 
+tests, a continuous integration approach is used.
 
-Das parent-pom Projekt ist ein maven Projekt, welches als Parent-POM für alle unsere hier veröffentlichten Java-Projekte 
-genutzt wird. Es enthält die wichtigsten Konfigurationen für unsere maven Projekte und unsere Werkzeuge mit denen wir
-ein CI/CD Entwicklungsprozess realisieren.
+Currently, the following projects have been published on this account:
 
-Hierfür setzen wir auf kostenlose Cloud Technologien:
-- [Maven](http://maven.apache.org/) (als Build & Dependency Werkzeug)
-- [GitHub](https://github.com/dev-time-tpw) (als SCM)
-- [GitHub actions](https://docs.github.com/en/free-pro-team@latest/actions) (als CI/CD Pipeline)
-- [Sonarcloud.io](https://sonarcloud.io/organizations/devtime/projects) (als Quality Werkzeug)
-- [JFrog Artifactory](https://devtime.jfrog.io/ui/packages) (als Artefakt Repository)
+* **<a class="none" href="https://github.com/dev-time-tpw/parent-pom">parent-pom</a>**<br />
+There are several common configurations in this project that are used by many projects here. This includes a Maven 
+parent-pom that contains all the important configurations for the Maven projects on this account. This parent-pom is 
+constantly being maintained.<br />
+In addition to the parent-pom, there is also a checkstyle-parent-pom in this project that is specifically for Java-only 
+projects and is used to automatically distribute the checkstyle rules contained in the checkstyle-config module to all 
+inheriting Maven projects during the build process. All Maven projects that inherit from this checkstyle-parent-pom will 
+have a checkstyle check performed in addition to the SonarCloud checks.
+* **<a class="none" href="https://github.com/dev-time-tpw/java-utils">java-utils</a>**<br />
+In this project there are many different utility, logging, resources and swing classes in different modules. These 
+utilities are used by different projects on this account.
+* **<a class="none" href="https://github.com/dev-time-tpw/muphin-framework">muphin-framework</a>**<br />
+The **mu**pltiple **ph**ase **in**tegrationtest framework is a small test framework based on JUnit, which can be used 
+to define and test any kind of workflow. Single workflows consist of phases that can trigger various actions. With the 
+help of annotations JUnit test methods can be executed before and after a certain phase.
 
-## Über uns
+## About the parent pom
 
-Die <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x12.png" /> entwickelt freie open source Software. Dabei haben wir einen sehr hohen qualitativen Anspruch, der sich 
-sowohl in der Softwareentwicklung, als auch in der resultierenden Software widerspiegelt. Unser Team bringt langjährige
-Erfahrung aus folgenden Bereich mit:
-- Java Rich Clients (SWT, Swing, JavaFX)
-- Java EE (Backend, Webservices, Persistence, Mehrschichten Architektur)
-- Datenbanken (Oracle, MSSQL Server, PostgreSQL, MySQL, SQlite, H2)
-- Testmethoden (Entwicklertests (unit testing), Test Driven development (TDD), Behavior Driven Development (BDD))
-- Test-Frameworks (JUnit4, cucumber, serenity, Mockito, DBUnit, Hamcrest, uvm.)
+The parent-pom contains many common dependencies and plugins in the latest tested version. However, the individual 
+projects are responsible to use the dependencies as needed. Here only a few dependencies are activated, which should 
+also be used by all projects.
 
-## Lizenzierung
+These include three domains:
 
-Copyright (c) 2021 <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x12.png" />.
+**Common dependencies**
 
-Lizenziert unter **Apache-Lizenz, Version 2.0** (die "Lizenz"). Sie dürfen diese Datei ausschließlich im Einklang mit 
-der Lizenz verwenden.
+* <a class="none" href="https://commons.apache.org/proper/commons-lang/">org.apache.commons:commons-lang3</a>
+* <a class="none" href="https://github.com/google/guava">com.google.guava:guava</a>
 
-Eine Kopie der Lizenz erhalten Sie unter https://www.apache.org/licenses/LICENSE-2.0.
+**Testing dependencies**
 
-Sofern nicht durch anwendbares Recht gefordert oder schriftlich vereinbart, wird jede unter der Lizenz bereitgestellte 
-Software „OHNE MÄNGELGEWÄHR“ UND OHNE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GARANTIE JEGLICHER ART bereitgestellt. 
-Die genauen Angaben zu Genehmigungen und Einschränkungen unter der Lizenz finden Sie in der [LIZENZ](LICENSE).
+* <a class="none" href="http://hamcrest.org/JavaHamcrest/distributables">org.hamcrest:hamcrest-all</a>
+* <a class="none" href="https://github.com/eXparity/hamcrest-date">org.exparity:hamcrest-date</a>
+* <a class="none" href="https://github.com/spotify/java-hamcrest">com.spotify:hamcrest-jackson</a>
+* <a class="none" href="https://github.com/spotify/java-hamcrest">com.spotify:hamcrest-pojo</a>
+* <a class="none" href="https://github.com/spotify/java-hamcrest">com.spotify:hamcrest-optional</a>
+* <a class="none" href="https://junit.org/junit4/">junit:junit</a>
+* <a class="none" href="https://site.mockito.org/">org.mockito:mockito-all</a>
+
+**Logging dependencies**
+
+* <a class="none" href="https://logging.apache.org/log4j/2.x/">org.apache.logging.log4j:log4j-api</a>
+* <a class="none" href="https://logging.apache.org/log4j/2.x/">org.apache.logging.log4j:log4j-core</a>
+* <a class="none" href="https://logging.apache.org/log4j/2.x/">org.apache.logging.log4j:log4j-slf4j-impl</a>
+* <a class="none" href="http://www.slf4j.org/">org.slf4j:slf4j-api</a>
+
+Furthermore, a continuous integration pipeline is defined for all projects based on the following technologies:
+
+* <a class="none" href="https://maven.apache.org/">Maven (as a build & dependency tool)</a>
+* <a class="none" href="https://github.com/dev-time-tpw">GitHub (as source code management tool)</a>
+* <a class="none" href="https://docs.github.com/en/free-pro-team@latest/actions">GitHub actions (as CI/CD pipeline)</a>
+* <a class="none" href="https://sonarcloud.io/organizations/devtime/projects">Sonarcloud.io (as quality tool)</a>
+* <a class="none" href="https://devtime.jfrog.io/ui/packages">JFrog Artifactory (as artefact repository)</a>
+
+## Licensing
+
+Copyright (c) 2021 <img src="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/images/dev-time-86x15.png" />.
+
+Licensed under the **Apache License, Version 2.0** (the "License"). You may not use this file except in compliance with 
+the License.
+
+You may obtain a copy of the License at https://www.apache.org/licenses/LICENSE-2.0.
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific 
+language governing permissions and limitations under the [LIZENZ](LICENSE).
