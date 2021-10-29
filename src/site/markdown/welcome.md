@@ -24,6 +24,7 @@
 <hr />
 <p align="center">
     <a class="none" href="#about-this-account">About this account</a> • 
+    <a class="none" href="#documentation">Documentation</a> • 
     <a class="none" href="#about-the-parent-pom">About the parent-pom</a> • 
     <a class="none" href="#licensing">Licensing</a>
 </p>
@@ -57,6 +58,21 @@ utilities are used by different projects on this account.
 The **mu**pltiple **ph**ase **in**tegrationtest framework is a small test framework based on JUnit, which can be used 
 to define and test any kind of workflow. Single workflows consist of phases that can trigger various actions. With the 
 help of annotations JUnit test methods can be executed before and after a certain phase.
+
+<a name="documentation"></a>
+
+## Documentation
+
+Modern software development includes not only the source code itself, but also automated tests, quality analysis and 
+documentation. Therefore, Maven sites are created and maintained for all projects. The great advantage of this approach 
+is that all important documents are versioned and located close to the actual source code, so that changes to the 
+source code always result in adjustments to the tests and documentation.
+Another advantage is that the associated documentation and test results are also generated for a release.
+
+The Maven sites can be found at the following URL: <a class="none" href="http://dev-time.de/javadoc/welcome.html">http://dev-time.de/javadoc/welcome.html</a>
+
+All projects are structured hierarchically, so that it is possible to navigate through the maven sites across different 
+projects. The upper navigation bar can always be used to jump back to the start page above.
 
 <a name="about-the-parent-pom"></a>
 

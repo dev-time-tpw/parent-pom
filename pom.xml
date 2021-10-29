@@ -74,30 +74,31 @@
 		<maven-fluido-skin.version>1.9</maven-fluido-skin.version>
 
 		<!-- Plugin versions -->
-		<artifactory-maven-plugin.version>3.2.3</artifactory-maven-plugin.version> <!-- Apache License -->
+		<artifactory-maven-plugin.version>3.2.3</artifactory-maven-plugin.version> <!-- Apache License 2.0 -->
 		<build-helper-maven-plugin.version>3.2.0</build-helper-maven-plugin.version> <!-- MIT -->
 		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version> <!-- EPL-2.0 (?) -->
 		<jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version> <!-- EPL 2.0 -->
-		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version> <!-- Apache License -->
-		<maven-changes-plugin.version>2.12.1</maven-changes-plugin.version> <!-- Apache License -->
-		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version> <!-- Apache License -->
-		<maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version> <!-- Apache License -->
-		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version> <!-- Apache License -->
-		<maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version> <!-- Apache License -->
-		<maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version> <!-- Apache License -->
-		<maven-javadoc-plugin.version>3.3.1</maven-javadoc-plugin.version> <!-- Apache License -->
-		<maven-jxr-plugin.version>3.1.1</maven-jxr-plugin.version> <!-- Apache License -->
-		<maven-project-info-reports-plugin.version>3.1.2</maven-project-info-reports-plugin.version> <!-- Apache License -->
-		<maven-release-plugin.version>3.0.0-M4</maven-release-plugin.version> <!-- Apache License -->
+		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version> <!-- Apache License 2.0 -->
+		<maven-changes-plugin.version>2.12.1</maven-changes-plugin.version> <!-- Apache License 2.0 -->
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version> <!-- Apache License 2.0 -->
+		<maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version> <!-- Apache License 2.0 -->
+		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version> <!-- Apache License 2.0 -->
+		<maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version> <!-- Apache License 2.0 -->
+		<maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version> <!-- Apache License 2.0 -->
+		<maven-javadoc-plugin.version>3.3.1</maven-javadoc-plugin.version> <!-- Apache License 2.0 -->
+		<maven-jxr-plugin.version>3.1.1</maven-jxr-plugin.version> <!-- Apache License 2.0 -->
+		<maven-project-info-reports-plugin.version>3.1.2</maven-project-info-reports-plugin.version> <!-- Apache License 2.0 -->
+		<maven-release-plugin.version>3.0.0-M4</maven-release-plugin.version> <!-- Apache License 2.0 -->
 		<maven-replacer-plugin.version>1.4.1</maven-replacer-plugin.version> <!-- MIT -->
-		<maven-resources-plugin.version>3.2.0</maven-resources-plugin.version> <!-- Apache License -->
-		<maven-site-plugin.version>3.9.1</maven-site-plugin.version> <!-- Apache License -->
-		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version> <!-- Apache License -->
-		<maven-war-plugin.version>3.3.1</maven-war-plugin.version> <!-- Apache License -->
+		<maven-resources-plugin.version>3.2.0</maven-resources-plugin.version> <!-- Apache License 2.0 -->
+		<maven-site-plugin.version>3.9.1</maven-site-plugin.version> <!-- Apache License 2.0 -->
+		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version> <!-- Apache License 2.0 -->
+		<maven-war-plugin.version>3.3.1</maven-war-plugin.version> <!-- Apache License 2.0 -->
 		<sonar-maven-plugin.version>3.9.0.2155</sonar-maven-plugin.version> <!-- LGPL 3.0 -->
-		<wagon-ssh.version>3.4.3</wagon-ssh.version> <!-- Apache License -->
-		<wagon-ftp.version>3.4.3</wagon-ftp.version> <!-- Apache License -->
-		<taglist-maven-plugin.version>2.4</taglist-maven-plugin.version> <!-- Apache License -->
+		<wagon-ssh.version>3.4.3</wagon-ssh.version> <!-- Apache License 2.0 -->
+		<wagon-ftp.version>3.4.3</wagon-ftp.version> <!-- Apache License 2.0 -->
+		<taglist-maven-plugin.version>2.4</taglist-maven-plugin.version> <!-- Apache License 2.0 -->
+		<versions-maven-plugin.version>2.8.1</versions-maven-plugin.version> <!-- Apache License 2.0 -->
 
 		<!-- ===================== -->
 		<!-- dev|time dependencies -->
@@ -107,49 +108,49 @@
 		<!-- =================== -->
 		<!-- Common dependencies -->
 		<!-- =================== -->
-		<cloning.version>1.9.12</cloning.version> <!-- Apache License -->
-		<commons-codec.version>1.15</commons-codec.version> <!-- Apache License -->
-		<commons-collections4.version>4.4</commons-collections4.version> <!-- Apache License -->
-		<commons-io.version>2.11.0</commons-io.version> <!-- Apache License -->
-		<commons-lang3.version>3.12.0</commons-lang3.version> <!-- Apache License -->
-		<commons-math3.version>3.6.1</commons-math3.version> <!-- Apache License -->
-		<commons-validator.version>1.7</commons-validator.version> <!-- Apache License -->
+		<cloning.version>1.9.12</cloning.version> <!-- Apache License 2.0 -->
+		<commons-codec.version>1.15</commons-codec.version> <!-- Apache License 2.0 -->
+		<commons-collections4.version>4.4</commons-collections4.version> <!-- Apache License 2.0 -->
+		<commons-io.version>2.11.0</commons-io.version> <!-- Apache License 2.0 -->
+		<commons-lang3.version>3.12.0</commons-lang3.version> <!-- Apache License 2.0 -->
+		<commons-math3.version>3.6.1</commons-math3.version> <!-- Apache License 2.0 -->
+		<commons-validator.version>1.7</commons-validator.version> <!-- Apache License 2.0 -->
 		<controlsfx.version>11.1.0</controlsfx.version> <!-- The 3-Clause BSD License -->
-		<guava.version>30.1.1-jre</guava.version> <!-- Apache License -->
+		<guava.version>30.1.1-jre</guava.version> <!-- Apache License 2.0 -->
 		<hibernate-annotations.version>3.5.6-Final</hibernate-annotations.version> <!-- GNU Lesser General Public License v2.1 -->
 		<hibernate-commons-annotations.version>5.1.2.Final</hibernate-commons-annotations.version> <!-- GNU Lesser General Public License v2.1 -->
 		<hibernate-core.version>5.2.12.Final</hibernate-core.version> <!-- GNU Lesser General Public License v2.1 -->
 		<hibernate-entitymanager.version>5.5.7.Final</hibernate-entitymanager.version> <!-- GNU Lesser General Public License v2.1 -->
-		<hibernate-jpa-2.1-api.version>1.0.2.Final</hibernate-jpa-2.1-api.version> <!-- EPL 1.0 (nur Verwendung) / EDL 1.0 -->
+		<hibernate-jpa-2.1-api.version>1.0.2.Final</hibernate-jpa-2.1-api.version> <!-- EPL 1.0 (only usage) / EDL 1.0 -->
 		<hibernate-search-orm.version>5.11.9.Final</hibernate-search-orm.version> <!-- GNU Lesser General Public License v2.1 -->
 		<jboss-javaee-7.0.version>1.1.1.Final</jboss-javaee-7.0.version> <!-- GNU Lesser General Public License v2.1 -->
-		<jfreechart.version>1.5.3</jfreechart.version> <!-- GNU Lesser General Public Licence v3 -->
-		<quartz.version>2.3.2</quartz.version> <!-- Apache License -->
-		<opencsv.version>5.5.2</opencsv.version> <!-- Apache License -->
+		<jfreechart.version>1.5.3</jfreechart.version> <!-- GNU Lesser General Public License v3 -->
+		<quartz.version>2.3.2</quartz.version> <!-- Apache License 2.0 -->
+		<opencsv.version>5.5.2</opencsv.version> <!-- Apache License 2.0 -->
 		<reflections.version>0.9.12</reflections.version> <!-- BSD 2-clause -->
 
 		<!-- ==================== -->
 		<!-- Testing dependencies -->
 		<!-- ==================== -->
-		<awaitility.version>4.1.0</awaitility.version> <!-- Apache License -->
+		<awaitility.version>4.1.0</awaitility.version> <!-- Apache License 2.0 -->
 		<dbunit.version>2.7.2</dbunit.version> <!-- LGPL 2.1 -->
 		<h2database.version>1.4.200</h2database.version> <!-- MPL 2.0 / EPL 1.0 (only usage) -->
 		<hamcrest-all.version>1.3</hamcrest-all.version> <!-- BSD 2 License -->
 		<hamcrest-date.version>2.0.7</hamcrest-date.version> <!-- BSD 2 License -->
-		<hamcrest-jackson.version>1.2.0</hamcrest-jackson.version> <!-- Apache License -->
-		<hamcrest-pojo.version>1.2.0</hamcrest-pojo.version> <!-- Apache License -->
+		<hamcrest-jackson.version>1.2.0</hamcrest-jackson.version> <!-- Apache License 2.0 -->
+		<hamcrest-pojo.version>1.2.0</hamcrest-pojo.version> <!-- Apache License 2.0 -->
 		<jacoco.core.version>0.8.7</jacoco.core.version> <!-- Eclipse Public License 2.0 (only usage) -->
 		<junit4.version>4.13.1</junit4.version> <!-- Eclipse Public License 1.0 (only usage) -->
-		<mockftpserver.version>2.7.1</mockftpserver.version> <!-- Apache License -->
+		<mockftpserver.version>2.7.1</mockftpserver.version> <!-- Apache License 2.0 -->
 		<mockito-all.version>1.10.19</mockito-all.version> <!-- MIT License -->
-		<spotify-java-hamcrest.version>1.2.0</spotify-java-hamcrest.version> <!-- Apache License -->
+		<spotify-java-hamcrest.version>1.2.0</spotify-java-hamcrest.version> <!-- Apache License 2.0 -->
 
 		<!-- ==================== -->
 		<!-- Logging dependencies -->
 		<!-- ==================== -->
-		<log4j-api.version>2.14.1</log4j-api.version> <!-- Apache License -->
-		<log4j-core.version>2.14.1</log4j-core.version> <!-- Apache License -->
-		<log4j-slf4j-impl.version>2.14.1</log4j-slf4j-impl.version> <!-- Apache License -->
+		<log4j-api.version>2.14.1</log4j-api.version> <!-- Apache License 2.0 -->
+		<log4j-core.version>2.14.1</log4j-core.version> <!-- Apache License 2.0 -->
+		<log4j-slf4j-impl.version>2.14.1</log4j-slf4j-impl.version> <!-- Apache License 2.0 -->
 		<slf4j-api.version>1.7.32</slf4j-api.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -995,6 +996,14 @@
 					<artifactId>taglist-maven-plugin</artifactId>
 					<version>${taglist-maven-plugin.version}</version>
 				</plugin>
+
+				<!-- Allows to check dependency versions for updates -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>${versions-maven-plugin.version}</version>
+				</plugin>
+
 			</plugins>
 		</pluginManagement>
 
@@ -1205,6 +1214,19 @@
 						</tagClasses>
 					</tagListOptions>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>dependency-updates-report</report>
+							<report>plugin-updates-report</report>
+							<report>property-updates-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 		</plugins>
 	</reporting>
