@@ -29,6 +29,8 @@
 </p>
 <hr />
 
+<!-- anker for maven site <a name="about-this-account"></a> -->
+
 ## About this account
 
 On this account you will find projects on various topics from the fields of testing, current frameworks and libraries 
@@ -55,6 +57,8 @@ utilities are used by different projects on this account.
 The **mu**pltiple **ph**ase **in**tegrationtest framework is a small test framework based on JUnit, which can be used 
 to define and test any kind of workflow. Single workflows consist of phases that can trigger various actions. With the 
 help of annotations JUnit test methods can be executed before and after a certain phase.
+
+<!-- anker for maven site <a name="about-the-parent-pom"></a> -->
 
 ## About the parent pom
 
@@ -88,11 +92,13 @@ These include three domains:
 
 Furthermore, a continuous integration pipeline is defined for all projects based on the following technologies:
 
-* <a href="https://maven.apache.org/">Maven (as a build & dependency tool)</a>
-* <a href="https://github.com/dev-time-tpw">GitHub (as source code management tool)</a>
-* <a href="https://docs.github.com/en/free-pro-team@latest/actions">GitHub actions (as CI/CD pipeline)</a>
-* <a href="https://sonarcloud.io/organizations/devtime/projects">Sonarcloud.io (as quality tool)</a>
-* <a href="https://devtime.jfrog.io/ui/packages">JFrog Artifactory (as artefact repository)</a>
+* <a href="https://maven.apache.org/">Maven</a> (as a build & dependency tool)
+* <a href="https://github.com/dev-time-tpw">GitHub</a> (as source code management tool)
+* <a href="https://docs.github.com/en/free-pro-team@latest/actions">GitHub actions</a> (as CI/CD pipeline)
+* <a href="https://sonarcloud.io/organizations/devtime/projects">Sonarcloud.io</a> (as quality tool)
+* <a href="https://devtime.jfrog.io/ui/packages">JFrog Artifactory</a> (as artefact repository)
+
+<!-- anker for maven site <a name="licensing"></a> -->
 
 ## Licensing
 

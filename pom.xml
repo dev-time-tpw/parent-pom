@@ -87,6 +87,7 @@
 		<maven-jxr-plugin.version>3.1.1</maven-jxr-plugin.version> <!-- Apache License -->
 		<maven-project-info-reports-plugin.version>3.1.2</maven-project-info-reports-plugin.version> <!-- Apache License -->
 		<maven-release-plugin.version>3.0.0-M4</maven-release-plugin.version> <!-- Apache License -->
+		<maven-replacer-plugin.version>1.4.1</maven-replacer-plugin.version> <!-- MIT -->
 		<maven-resources-plugin.version>3.2.0</maven-resources-plugin.version> <!-- Apache License -->
 		<maven-site-plugin.version>3.9.1</maven-site-plugin.version> <!-- Apache License -->
 		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version> <!-- Apache License -->
@@ -882,6 +883,53 @@
 					</configuration>
 				</plugin>
 
+				<!-- Copy the README.md to welcome.md in the maven sites and correct some items to be compatible -->
+				<!-- to maven site conventions. -->
+				<plugin>
+					<groupId>com.google.code.maven-replacer-plugin</groupId>
+					<artifactId>maven-replacer-plugin</artifactId>
+					<version>${maven-replacer-plugin.version}</version>
+					<executions>
+						<execution>
+							<phase>process-resources</phase>
+							<goals>
+								<goal>replace</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<filesToInclude>README.md</filesToInclude>
+						<outputFile>src/site/markdown/welcome.md</outputFile>
+						<regex>true</regex>
+						<replacements>
+							<replacement>
+								<token>logo.GitHub.style.plastic</token>
+								<value>logo&#38;#61;GitHub&#38;#38;style&#38;#61;plastic</value>
+							</replacement>
+							<replacement>
+								<token>io.style.plastic</token>
+								<value>io&#38;#38;style&#38;#61;plastic</value>
+							</replacement>
+							<replacement>
+								<token>logo.SonarCloud.server.https</token>
+								<value>logo&#38;#61;SonarCloud&#38;#38;server&#38;#61;https</value>
+							</replacement>
+							<replacement>
+								<token>label.quality-build.</token>
+								<value>label&#38;#61;quality-build&#38;#38;</value>
+							</replacement>
+							<replacement>
+								<token>&#60;a href&#61;</token>
+								<value>&#60;a class&#61;"none" href&#61;</value>
+							</replacement>
+							<replacement>
+								<token>&#60;!-- anker for maven site (.*) --&#62;</token>
+								<value>$1</value>
+							</replacement>
+						</replacements>
+					</configuration>
+				</plugin>
+
 				<!-- Enables additional source directories for generated sources -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -949,49 +997,10 @@
 		</pluginManagement>
 
 		<plugins>
-			
 			<plugin>
 				<groupId>com.google.code.maven-replacer-plugin</groupId>
 				<artifactId>maven-replacer-plugin</artifactId>
-				<version>1.4.1</version>
-				<executions>
-					<execution>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>replace</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<filesToInclude>README.md</filesToInclude>
-					<outputFile>src/site/markdown/welcome.md</outputFile>
-					<regex>true</regex>
-					<replacements>
-						<replacement>
-							<token>logo.GitHub.style.plastic</token>
-							<value>logo&#38;#61;GitHub&#38;#38;style&#38;#61;plastic</value>
-						</replacement>
-						<replacement>
-							<token>io.style.plastic</token>
-							<value>io&#38;#38;style&#38;#61;plastic</value>
-						</replacement>
-						<replacement>
-							<token>logo.SonarCloud.server.https</token>
-							<value>logo&#38;#61;SonarCloud&#38;#38;server&#38;#61;https</value>
-						</replacement>
-						<replacement>
-							<token>label.quality-build.</token>
-							<value>label&#38;#61;quality-build&#38;#38;</value>
-						</replacement>
-						<replacement>
-							<token>&#60;a href&#61;</token>
-							<value>&#60;a class&#61;"none" href&#61;</value>
-						</replacement>
-					</replacements>
-				</configuration>
 			</plugin>
-
-
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>

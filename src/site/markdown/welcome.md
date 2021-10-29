@@ -29,6 +29,8 @@
 </p>
 <hr />
 
+<a name="about-this-account"></a>
+
 ## About this account
 
 On this account you will find projects on various topics from the fields of testing, current frameworks and libraries 
@@ -55,6 +57,8 @@ utilities are used by different projects on this account.
 The **mu**pltiple **ph**ase **in**tegrationtest framework is a small test framework based on JUnit, which can be used 
 to define and test any kind of workflow. Single workflows consist of phases that can trigger various actions. With the 
 help of annotations JUnit test methods can be executed before and after a certain phase.
+
+<a name="about-the-parent-pom"></a>
 
 ## About the parent pom
 
@@ -88,11 +92,13 @@ These include three domains:
 
 Furthermore, a continuous integration pipeline is defined for all projects based on the following technologies:
 
-* <a class="none" href="https://maven.apache.org/">Maven (as a build & dependency tool)</a>
-* <a class="none" href="https://github.com/dev-time-tpw">GitHub (as source code management tool)</a>
-* <a class="none" href="https://docs.github.com/en/free-pro-team@latest/actions">GitHub actions (as CI/CD pipeline)</a>
-* <a class="none" href="https://sonarcloud.io/organizations/devtime/projects">Sonarcloud.io (as quality tool)</a>
-* <a class="none" href="https://devtime.jfrog.io/ui/packages">JFrog Artifactory (as artefact repository)</a>
+* <a class="none" href="https://maven.apache.org/">Maven</a> (as a build & dependency tool)
+* <a class="none" href="https://github.com/dev-time-tpw">GitHub</a> (as source code management tool)
+* <a class="none" href="https://docs.github.com/en/free-pro-team@latest/actions">GitHub actions</a> (as CI/CD pipeline)
+* <a class="none" href="https://sonarcloud.io/organizations/devtime/projects">Sonarcloud.io</a> (as quality tool)
+* <a class="none" href="https://devtime.jfrog.io/ui/packages">JFrog Artifactory</a> (as artefact repository)
+
+<a name="licensing"></a>
 
 ## Licensing
 
@@ -101,7 +107,7 @@ Copyright (c) 2021 <img src="https://raw.githubusercontent.com/dev-time-tpw/pare
 Licensed under the **Apache License, Version 2.0** (the "License"). You may not use this file except in compliance with 
 the License.
 
-You may obtain a copy of the License at https://www.apache.org/licenses/LICENSE-2.0.
+You may obtain a copy of the License at <a class="none" href="https://www.apache.org/licenses/LICENSE-2.0">https://www.apache.org/licenses/LICENSE-2.0</a>.
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 
 "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific 
