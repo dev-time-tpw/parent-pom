@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	
+
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -13,17 +13,26 @@
 	<packaging>jar</packaging>
 
 	<name>checkstyle config</name>
-	<description>Provide our own checkstyle configuration to be able to use this configuration in all our projects.</description>
+	<description>Provide our own checkstyle configuration to be able to use this configuration in all our projects.
+	</description>
+
+	<scm>
+		<connection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</connection>
+		<developerConnection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</developerConnection>
+		<url>https://github.com/dev-time-tpw/parent-pom/tree/main/checkstyle-config</url>
+		<tag>HEAD</tag>
+	</scm>
 
 	<properties>
 		<checkstyle_configuration_file>src/main/resources/devtime_checks.xml</checkstyle_configuration_file>
+		<readme.to.maven.site.filename>index</readme.to.maven.site.filename>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-checkstyle-plugin</artifactId>
-			<version>3.1.2</version>
+			<version>${maven-checkstyle-plugin.version}</version>
 		</dependency>
 	</dependencies>
 </project>

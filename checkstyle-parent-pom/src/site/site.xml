@@ -18,7 +18,6 @@
 	<body>
 
 		<breadcrumbs>
-			<item name="dev|time" href="http://dev-time.de/javadoc/welcome.html" />
 			<item name="Checkstyle parent-pom" href="index.html" />
 		</breadcrumbs>
 

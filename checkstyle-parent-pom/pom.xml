@@ -18,20 +18,18 @@
 	<scm>
 		<connection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</connection>
 		<developerConnection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</developerConnection>
-		<url>https://github.com/dev-time-tpw/parent-pom/checkstyle-parent-pom</url>
+		<url>https://github.com/dev-time-tpw/parent-pom/tree/main/checkstyle-parent-pom</url>
 		<tag>HEAD</tag>
 	</scm>
 
 	<!-- Parameter and versions for all plugins and dependencies -->
 	<properties>
+		<readme.to.maven.site.filename>index</readme.to.maven.site.filename>
 
 		<!-- Used by SonarCloud -->
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<sonar.organization>devtime</sonar.organization>
 		<sonar.projectKey>devtime_checkstyle-parent-pom</sonar.projectKey>
-
-		<!-- Plugin versions -->
-		<maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version> <!-- Apache License -->
 
 		<!-- ===================== -->
 		<!-- dev|time dependencies -->
@@ -41,7 +39,6 @@
 
 		<!-- Use the template below to override the checkstyle_configuration_file property in all java based modules -->
 		<checkstyle_configuration_file>${project.build.directory}/generated-resources/devtime_checks.xml</checkstyle_configuration_file>
-		<checkstyle.version>9.0.1</checkstyle.version>
 	</properties>
 
 	<dependencyManagement>

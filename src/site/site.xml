@@ -19,7 +19,7 @@
 	<body>
 
 		<breadcrumbs>
-			<item name="dev|time" href="http://dev-time.de/javadoc/welcome.html" />
+			<item name="dev|time" href="welcome.html" />
 		</breadcrumbs>
 
 		<menu>

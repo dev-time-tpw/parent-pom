@@ -37,6 +37,19 @@
 		<tag>HEAD</tag>
 	</scm>
 
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/dev-time-tpw/parent-pom/issues</url>
+	</issueManagement>
+
+	<licenses>
+		<license>
+			<name>Apache License 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
 	<!-- Used by mvn deploy to deploy artifacts into several repositories -->
 	<distributionManagement>
 		<site>
@@ -59,6 +72,8 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<ejb.version>3.2</ejb.version>
+		<checkstyle.version>9.0.1</checkstyle.version>
+		<readme.to.maven.site.filename>welcome</readme.to.maven.site.filename>
 
 		<!-- Used by Github actions -->
 		<project.scm.id>github</project.scm.id>
@@ -76,14 +91,13 @@
 		<!-- Plugin versions -->
 		<artifactory-maven-plugin.version>3.2.3</artifactory-maven-plugin.version> <!-- Apache License 2.0 -->
 		<build-helper-maven-plugin.version>3.2.0</build-helper-maven-plugin.version> <!-- MIT -->
-		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version> <!-- EPL-2.0 (?) -->
 		<jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version> <!-- EPL 2.0 -->
 		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version> <!-- Apache License 2.0 -->
 		<maven-changes-plugin.version>2.12.1</maven-changes-plugin.version> <!-- Apache License 2.0 -->
+		<maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version> <!-- Apache License 2.0 -->
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version> <!-- Apache License 2.0 -->
 		<maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version> <!-- Apache License 2.0 -->
 		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version> <!-- Apache License 2.0 -->
-		<maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version> <!-- Apache License 2.0 -->
 		<maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version> <!-- Apache License 2.0 -->
 		<maven-javadoc-plugin.version>3.3.1</maven-javadoc-plugin.version> <!-- Apache License 2.0 -->
 		<maven-jxr-plugin.version>3.1.1</maven-jxr-plugin.version> <!-- Apache License 2.0 -->
@@ -717,79 +731,11 @@
 					<version>${build-helper-maven-plugin.version}</version>
 				</plugin>
 
-				<!-- This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
+				<!-- This plugin provides static code analysis tools -->
 				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>${lifecycle-mapping.version}</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.jacoco</groupId>
-										<artifactId>
-											jacoco-maven-plugin
-										</artifactId>
-										<versionRange>
-											[0.5.7.201204190339,)
-										</versionRange>
-										<goals>
-											<goal>prepare-agent</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.jfrog.buildinfo
-										</groupId>
-										<artifactId>
-											artifactory-maven-plugin
-										</artifactId>
-										<versionRange>
-											[3.0.0,)
-										</versionRange>
-										<goals>
-											<goal>publish</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.apache.maven.plugins</groupId>
-										<artifactId>maven-checkstyle-plugin</artifactId>
-										<versionRange>[3.1.2,)</versionRange>
-										<goals>
-											<goal>check</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.apache.maven.plugins</groupId>
-										<artifactId>maven-dependency-plugin</artifactId>
-										<versionRange>[3.2.0,)</versionRange>
-										<goals>
-											<goal>unpack</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>${maven-checkstyle-plugin.version}</version>
 				</plugin>
 
 				<!-- A Maven plugin to create archives of your project's sources, classes, dependencies etc. from flexible assembly descriptors. -->
@@ -826,26 +772,6 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-deploy-plugin</artifactId>
 					<version>${maven-deploy-plugin.version}</version>
-				</plugin>
-
-				<!-- Configuration for Eclipse projects -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-eclipse-plugin</artifactId>
-					<version>${maven-eclipse-plugin.version}</version>
-					<configuration>
-						<downloadSources>true</downloadSources>
-						<downloadJavadocs>true</downloadJavadocs>
-
-						<additionalProjectnatures>
-							<projectnature>org.eclipse.m2e.core.maven2Nature</projectnature>
-						</additionalProjectnatures>
-						<additionalBuildcommands>
-							<buildcommand>org.eclipse.m2e.core.maven2Builder</buildcommand>
-						</additionalBuildcommands>
-
-						<testSourcesLast>true</testSourcesLast>
-					</configuration>
 				</plugin>
 
 				<!-- Plugin that runs integration tests -->
@@ -902,7 +828,7 @@
 					</executions>
 					<configuration>
 						<filesToInclude>README.md</filesToInclude>
-						<outputFile>src/site/markdown/welcome.md</outputFile>
+						<outputFile>src/site/markdown/${readme.to.maven.site.filename}.md</outputFile>
 						<regex>true</regex>
 						<replacements>
 							<replacement>
@@ -1021,10 +947,6 @@
 				<artifactId>artifactory-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.eclipse.m2e</groupId>
-				<artifactId>lifecycle-mapping</artifactId>
-			</plugin>
-			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
@@ -1035,10 +957,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -1079,6 +997,10 @@
 				<configuration>
 					<!-- TODO add github report -->
 					<!-- see: https://maven.apache.org/plugins/maven-changes-plugin/examples/configuring-github-report.html -->
+					<!-- <onlyCurrentVersion>true</onlyCurrentVersion> -->
+					<githubAPIScheme>https</githubAPIScheme>
+					<githubAPIPort>443</githubAPIPort>
+					<includeOpenIssues>true</includeOpenIssues>
 				</configuration>
 				<reportSets>
 					<reportSet>
@@ -1230,4 +1152,129 @@
 			</plugin>
 		</plugins>
 	</reporting>
+	<profiles>
+		<profile>
+			<id>only-eclipse</id>
+			<activation>
+				<property>
+					<name>m2e.version</name>
+				</property>
+			</activation>
+			<properties>
+				<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version> <!-- EPL-2.0 (?) -->
+				<maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version> <!-- Apache License 2.0 -->
+			</properties>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<!-- This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build 
+							itself. -->
+						<plugin>
+							<groupId>org.eclipse.m2e</groupId>
+							<artifactId>lifecycle-mapping</artifactId>
+							<version>${lifecycle-mapping.version}</version>
+							<configuration>
+								<lifecycleMappingMetadata>
+									<pluginExecutions>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>org.jacoco</groupId>
+												<artifactId>
+													jacoco-maven-plugin
+												</artifactId>
+												<versionRange>
+													[0.5.7.201204190339,)
+												</versionRange>
+												<goals>
+													<goal>prepare-agent</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore />
+											</action>
+										</pluginExecution>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>
+													org.jfrog.buildinfo
+												</groupId>
+												<artifactId>
+													artifactory-maven-plugin
+												</artifactId>
+												<versionRange>
+													[3.0.0,)
+												</versionRange>
+												<goals>
+													<goal>publish</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore />
+											</action>
+										</pluginExecution>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>org.apache.maven.plugins</groupId>
+												<artifactId>maven-checkstyle-plugin</artifactId>
+												<versionRange>[3.1.2,)</versionRange>
+												<goals>
+													<goal>check</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore></ignore>
+											</action>
+										</pluginExecution>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>org.apache.maven.plugins</groupId>
+												<artifactId>maven-dependency-plugin</artifactId>
+												<versionRange>[3.2.0,)</versionRange>
+												<goals>
+													<goal>unpack</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore></ignore>
+											</action>
+										</pluginExecution>
+									</pluginExecutions>
+								</lifecycleMappingMetadata>
+							</configuration>
+						</plugin>
+
+						<!-- Configuration for Eclipse projects -->
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-eclipse-plugin</artifactId>
+							<version>${maven-eclipse-plugin.version}</version>
+							<configuration>
+								<downloadSources>true</downloadSources>
+								<downloadJavadocs>true</downloadJavadocs>
+
+								<additionalProjectnatures>
+									<projectnature>org.eclipse.m2e.core.maven2Nature</projectnature>
+								</additionalProjectnatures>
+								<additionalBuildcommands>
+									<buildcommand>org.eclipse.m2e.core.maven2Builder</buildcommand>
+								</additionalBuildcommands>
+
+								<testSourcesLast>true</testSourcesLast>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.m2e</groupId>
+						<artifactId>lifecycle-mapping</artifactId>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-eclipse-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
