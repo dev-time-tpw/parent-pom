@@ -7,13 +7,16 @@
   <img src="https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20snapshot%20build-job?logo&#61;GitHub&#38;style&#61;plastic" />
 </a>
 <a class="none" href="https://github.com/dev-time-tpw/parent-pom/actions/workflows/quality-job.yml" title="Quality Job">
-  <img src="https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20quality%20build-job?label&#61;quality-build&#38;logo&#61;GitHub&#38;style&#61;plastic" />
+  <img src="https://img.shields.io/github/workflow/status/dev-time-tpw/parent-pom/Run%20quality%20build-job?label&#61;nightly-build&#38;logo&#61;GitHub&#38;style&#61;plastic" />
 </a>
 <a class="none" href="https://github.com/dev-time-tpw/parent-pom/blob/main/LICENSE" title="License">
   <img src="https://img.shields.io/github/license/dev-time-tpw/parent-pom?logo&#61;GitHub&#38;style&#61;plastic" />
 </a>
 <a class="none" href="https://github.com/dev-time-tpw/parent-pom" title="Last Commit">
   <img src="https://img.shields.io/github/last-commit/dev-time-tpw/parent-pom?logo&#61;GitHub&#38;style&#61;plastic" />
+</a>
+<a class="none" href="https://github.com/dev-time-tpw/parent-pom" title="Lines of code">
+  <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/dev-time-tpw/parent-pom?logo&#61;GitHub&#38;style&#61;plastic" />
 </a>
 <br />
 <a class="none" href="https://sonarcloud.io/dashboard?id=devtime_parent-pom" title="Quality Gate">
@@ -41,7 +44,7 @@
 On this account you will find projects on various topics from the fields of testing, current frameworks and libraries 
 in the Java and Maven context. Great emphasis is placed on comprehensibility and quality, so that everyone is able to 
 understand and use the examples and projects well.<br />
-To achieve this, an open source platform was chosen. Free quality tools like [SonarCloud](Sonarcloud.io) but also 
+To achieve this, an open source platform was chosen. Free quality tools like [SonarCloud](https://sonarcloud.io/) but also 
 Checkstyle are used to ensure the highest possible quality. Using the GitHub Actions and Maven, as well as the JUnit 
 tests, a continuous integration approach is used.
 
@@ -131,4 +134,4 @@ You may obtain a copy of the License at https://www.apache.org/licenses/LICENSE-
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 
 "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific 
-language governing permissions and limitations under the [LIZENZ](LICENSE).
+language governing permissions and limitations under the <a class="none" href="https://raw.githubusercontent.com/dev-time-tpw/parent-pom/main/LICENSE">LICENSE</a>.

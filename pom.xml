@@ -10,11 +10,14 @@
 
 	<name>dev|time</name>
 	<description>Contains common configuration and dependencies for all dev|time projects.</description>
-
-	<modules>
-		<module>checkstyle-config</module>
-		<module>checkstyle-parent-pom</module>
-	</modules>
+	<url>http://dev-time.de/javadoc/welcome.html</url>
+	<licenses>
+		<license>
+			<name>Apache License 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 	<developers>
 		<developer>
@@ -30,27 +33,21 @@
 		</developer>
 	</developers>
 
+	<modules>
+		<module>checkstyle-config</module>
+		<module>checkstyle-parent-pom</module>
+	</modules>
+
 	<scm>
 		<connection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</connection>
 		<developerConnection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</developerConnection>
 		<url>https://github.com/dev-time-tpw/parent-pom</url>
 		<tag>HEAD</tag>
 	</scm>
-
 	<issueManagement>
 		<system>GitHub Issues</system>
 		<url>https://github.com/dev-time-tpw/parent-pom/issues</url>
 	</issueManagement>
-
-	<licenses>
-		<license>
-			<name>Apache License 2.0</name>
-			<url>https://www.apache.org/licenses/LICENSE-2.0</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-
-	<!-- Used by mvn deploy to deploy artifacts into several repositories -->
 	<distributionManagement>
 		<site>
 			<id>devtime-sites</id>
@@ -74,6 +71,12 @@
 		<ejb.version>3.2</ejb.version>
 		<checkstyle.version>9.0.1</checkstyle.version>
 		<readme.to.maven.site.filename>welcome</readme.to.maven.site.filename>
+		<!-- <project.url>index.html</project.url> -->
+
+		<!-- Little hack to activate the URL tests on the generated maven sites only when the last child was processed -->
+		<!-- Only then, all content is available locally and can be checked successfully -->
+		<!-- This property has to be set in all build/parent poms of a multiple module project -->
+		<run.linkchecker>false</run.linkchecker>
 
 		<!-- Used by Github actions -->
 		<project.scm.id>github</project.scm.id>
@@ -844,8 +847,16 @@
 								<value>logo&#38;#61;SonarCloud&#38;#38;server&#38;#61;https</value>
 							</replacement>
 							<replacement>
-								<token>label.quality-build.</token>
-								<value>label&#38;#61;quality-build&#38;#38;</value>
+								<token>label.nightly-build.</token>
+								<value>label&#38;#61;nightly-build&#38;#38;</value>
+							</replacement>
+							<replacement>
+								<token>.metric.</token>
+								<value>&#38;#38;metric&#38;#61;</value>
+							</replacement>
+							<replacement>
+								<token>logo.SonarCloud.server.</token>
+								<value>logo&#38;#61;SonarCloud&#38;#38;serverlogo&#38;#61;</value>
 							</replacement>
 							<replacement>
 								<token>&#60;a href&#61;</token>
@@ -929,7 +940,6 @@
 					<artifactId>versions-maven-plugin</artifactId>
 					<version>${versions-maven-plugin.version}</version>
 				</plugin>
-
 			</plugins>
 		</pluginManagement>
 
@@ -1232,6 +1242,19 @@
 												<versionRange>[3.2.0,)</versionRange>
 												<goals>
 													<goal>unpack</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore></ignore>
+											</action>
+										</pluginExecution>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>com.google.code.maven-replacer-plugin</groupId>
+												<artifactId>maven-replacer-plugin</artifactId>
+												<versionRange>[1.4.1,)</versionRange>
+												<goals>
+													<goal>replace</goal>
 												</goals>
 											</pluginExecutionFilter>
 											<action>

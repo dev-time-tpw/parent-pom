@@ -15,6 +15,7 @@
 	<name>checkstyle config</name>
 	<description>Provide our own checkstyle configuration to be able to use this configuration in all our projects.
 	</description>
+	<url>http://dev-time.de/javadoc/checkstyle-config/index.html</url>
 
 	<scm>
 		<connection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</connection>
@@ -26,6 +27,7 @@
 	<properties>
 		<checkstyle_configuration_file>src/main/resources/devtime_checks.xml</checkstyle_configuration_file>
 		<readme.to.maven.site.filename>index</readme.to.maven.site.filename>
+		<run.linkchecker>true</run.linkchecker>
 	</properties>
 
 	<dependencies>

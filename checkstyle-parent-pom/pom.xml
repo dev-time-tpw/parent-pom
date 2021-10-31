@@ -14,6 +14,7 @@
 
 	<name>checkstyle parent-pom</name>
 	<description>Contains common configuration and dependencies for all dev|time projects.</description>
+	<url>http://dev-time.de/javadoc/checkstyle-parent-pom/index.html</url>
 
 	<scm>
 		<connection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</connection>
