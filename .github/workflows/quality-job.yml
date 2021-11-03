@@ -75,6 +75,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          MAVEN_SITE_URL: ${{ secrets.MAVEN_SITE_URL }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar site site:stage site-deploy
       - name: No analyse necessary
         if: env.LAST_COMMIT > 0
