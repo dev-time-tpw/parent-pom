@@ -58,6 +58,11 @@ jobs:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
+      - name: Setup Maven settings.xml
+        uses: whelk-io/maven-settings-xml-action@v11
+        with:
+          servers: '[{"id": "devtime-sites", "username": "${{ secrets.MAVEN_SITE_USER }}", "password": "${{ secrets.MAVEN_SITE_PASSWORD }}"}, { "id": "releases-repo", "username": "${{ secrets.ARTIFACTORY_USERNAME }}", "password": "${{ secrets.ARTIFACTORY_TOKEN }}" }, { "id": "snapshots-repo", "username": "${{ secrets.ARTIFACTORY_USERNAME }}", "password": "${{ secrets.ARTIFACTORY_TOKEN }}" }]'
+          repositories: '[{ "id": "releases-repo", "name": "devtime-release", "url": "https://devtime.jfrog.io/artifactory/devtime-release/", "releases.enabled": "true", "snapshots.enabled": "false" }, { "id": "snapshots-repo", "name": "devtime-snapshot", "url": "https://devtime.jfrog.io/artifactory/devtime-snapshot/", "releases.enabled": "false", "snapshots.enabled": "true" }]'
       - name: Cache Maven packages
         if: env.LAST_COMMIT == 0
         uses: actions/cache@v1
