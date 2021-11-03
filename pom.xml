@@ -55,13 +55,11 @@
 		</site>
 		<repository>
 			<id>devtime-releases-repo</id>
-			<!-- <name>a0t6qk8gmmphw-artifactory-primary-0-releases</name> -->
 			<name>devtime-releases-repo</name>
 			<url>https://devtime.jfrog.io/artifactory/devtime-release</url>
 		</repository>
 		<snapshotRepository>
 			<id>devtime-snapshots-repo</id>
-			<!-- <name>a0t6qk8gmmphw-artifactory-primary-0-snapshots</name> -->
 			<name>devtime-snapshots-repo</name>
 			<url>https://devtime.jfrog.io/artifactory/devtime-snapshot</url>
 		</snapshotRepository>

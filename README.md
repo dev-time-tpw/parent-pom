@@ -28,6 +28,7 @@
 <p align="center">
     <a href="#about-this-account">About this account</a> • 
     <a href="#documentation">Documentation</a> • 
+    <a href="#contribute">Contribute</a> • 
     <a href="#about-the-parent-pom">About the parent-pom</a> • 
     <a href="#licensing">Licensing</a>
 </p>
@@ -80,6 +81,71 @@ The Maven sites can be found at the following URL: <a href="http://dev-time.de/j
 
 All projects are structured hierarchically, so that it is possible to navigate through the maven sites across different 
 projects. The upper navigation bar can always be used to jump back to the start page above.
+
+<!-- anker for maven site <a name="contribute"></a> -->
+
+## Contribute
+
+If you would like to participate in the project or if you would like to run the projects yourself, you need to fulfill the following requirements:
+
+### Use Java 8
+
+Currently all projects are based on Java 8, so you need an <a href="https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html">Oracle Java 8 JDK</a> or <a href="https://openjdk.java.net/projects/jdk8/">OpenSDK 8</a> version on your system.
+
+However, there are already plans to support Java 11+ in the future (see https://github.com/dev-time-tpw/parent-pom/issues/2).
+
+### Create a settings.xml
+
+Since an Artifactory is used to manage all snapshots and releases, a `settings.xml` is required for the initial installation, which contains the connection information to the JFrog Artifactory.
+
+To do this, create a `settings.xml` file in your `.m2` directory, which is located in your user directory and copy the following content into this file.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 http://maven.apache.org/xsd/settings-1.2.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <profiles>
+    <profile>
+      <id>devtime-artifactory</id>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>devtime-releases-repo</id>
+          <name>devtime-release-repo</name>
+          <url>https://devtime.jfrog.io/artifactory/devtime-release</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>devtime-snapshots-repo</id>
+          <name>devtime-snapshot-repo</name>
+          <url>https://devtime.jfrog.io/artifactory/devtime-snapshot</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>devtime-releases-repo</id>
+          <name>devtime-release-repo</name>
+          <url>https://devtime.jfrog.io/artifactory/devtime-release</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>devtime-snapshots-repo</id>
+          <name>devtime-snapshot-repo</name>
+          <url>https://devtime.jfrog.io/artifactory/devtime-snapshot</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>devtime-artifactory</activeProfile>
+  </activeProfiles>
+</settings>
+```
 
 <!-- anker for maven site <a name="about-the-parent-pom"></a> -->
 
