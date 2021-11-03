@@ -55,12 +55,14 @@
 		</site>
 		<repository>
 			<id>devtime-releases-repo</id>
-			<name>a0t6qk8gmmphw-artifactory-primary-0-releases</name>
+			<!-- <name>a0t6qk8gmmphw-artifactory-primary-0-releases</name> -->
+			<name>devtime-releases-repo</name>
 			<url>https://devtime.jfrog.io/artifactory/devtime-release</url>
 		</repository>
 		<snapshotRepository>
 			<id>devtime-snapshots-repo</id>
-			<name>a0t6qk8gmmphw-artifactory-primary-0-snapshots</name>
+			<!-- <name>a0t6qk8gmmphw-artifactory-primary-0-snapshots</name> -->
+			<name>devtime-snapshots-repo</name>
 			<url>https://devtime.jfrog.io/artifactory/devtime-snapshot</url>
 		</snapshotRepository>
 	</distributionManagement>
@@ -71,12 +73,6 @@
 		<ejb.version>3.2</ejb.version>
 		<checkstyle.version>9.0.1</checkstyle.version>
 		<readme.to.maven.site.filename>welcome</readme.to.maven.site.filename>
-		<!-- <project.url>index.html</project.url> -->
-
-		<!-- Little hack to activate the URL tests on the generated maven sites only when the last child was processed -->
-		<!-- Only then, all content is available locally and can be checked successfully -->
-		<!-- This property has to be set in all build/parent poms of a multiple module project -->
-		<run.linkchecker>false</run.linkchecker>
 
 		<!-- Used by Github actions -->
 		<project.scm.id>github</project.scm.id>
@@ -1162,6 +1158,9 @@
 			</plugin>
 		</plugins>
 	</reporting>
+	
+	<!-- If you use eclipse then you want to suppress some warnings while maven build and you want use the  -->
+	<!-- maven-eclipse-plugin to setup eclipse configuration by pom..xml -->
 	<profiles>
 		<profile>
 			<id>only-eclipse</id>
