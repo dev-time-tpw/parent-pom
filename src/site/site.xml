@@ -28,8 +28,8 @@
 		</menu>
 
 		<menu name="Projects">
-			<item name="Java Utils" href="http://dev-time.de/javadoc/checkstyle-parent-pom/java-utils-build/index.html" />
-			<item name="Muphin Framework" href="http://dev-time.de/javadoc/checkstyle-parent-pom/muphin-build/index.html" />
+			<item name="Java Utils" href="checkstyle-parent-pom/java-utils-build/index.html" />
+			<item name="Muphin Framework" href="checkstyle-parent-pom/muphin-build/index.html" />
 		</menu>
 
 		<menu ref="modules" />
