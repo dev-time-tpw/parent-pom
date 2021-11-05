@@ -80,7 +80,7 @@ public class ParentPomCheckstyleSteps {
   @Then("the rules from the devtime_checks.xml are applied")
   public void the_rules_from_the_devtime_checks_xml_are_applied() throws IOException {
     assertThat(moduleBCsResultFileContent(), containsString(
-        "<file name=\"/media/truecrypt2/dev-time/parent-pom/parent-pom-acceptancetests/test-build/test-module-b/src/main/java/TestMain.java\">"));
+        "parent-pom-acceptancetests/test-build/test-module-b/src/main/java/TestMain.java\">"));
     assertThat(moduleBCsResultFileContent(),
         containsString("com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheck"));
     assertThat(moduleBCsResultFileContent(),
