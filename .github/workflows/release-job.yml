@@ -51,7 +51,6 @@ jobs:
           ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
           ARTIFACTORY_TOKEN: ${{ secrets.ARTIFACTORY_TOKEN }}
           MAVEN_SITE_URL: ${{ secrets.MAVEN_SITE_URL }}
-          ENV: ci
         run: mvn -B release:perform
       - name: Rollback if failure
         if: ${{ failure() }}
