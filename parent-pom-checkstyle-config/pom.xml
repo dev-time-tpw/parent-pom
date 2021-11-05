@@ -9,18 +9,18 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>checkstyle-config</artifactId>
+	<artifactId>parent-pom-checkstyle-config</artifactId>
 	<packaging>jar</packaging>
 
 	<name>checkstyle config</name>
-	<description>Provide our own checkstyle configuration to be able to use this configuration in all our projects.
+	<description>Provides a custom checkstyle configuration to be able to use this configuration in all our projects.
 	</description>
-	<url>http://dev-time.de/javadoc/checkstyle-config/index.html</url>
+	<url>http://dev-time.de/javadoc/parent-pom-checkstyle-config/index.html</url>
 
 	<scm>
 		<connection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</connection>
 		<developerConnection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</developerConnection>
-		<url>https://github.com/dev-time-tpw/parent-pom/tree/main/checkstyle-config</url>
+		<url>https://github.com/dev-time-tpw/parent-pom/tree/main/parent-pom-checkstyle-config</url>
 		<tag>HEAD</tag>
 	</scm>
 

@@ -78,6 +78,8 @@ source code always result in adjustments to the tests and documentation.
 Another advantage is that the associated documentation and test results are also generated for a release.
 
 The Maven sites can be found at the following URL: <a href="http://dev-time.de/javadoc/welcome.html">http://dev-time.de/javadoc/welcome.html</a>
+<p />
+Nightly snapshot Maven sites: <a href="http://dev-time.de/javadoc/staging/welcome.html">http://dev-time.de/javadoc/staging/welcome.html</a>
 
 All projects are structured hierarchically, so that it is possible to navigate through the maven sites across different 
 projects. The upper navigation bar can always be used to jump back to the start page above.

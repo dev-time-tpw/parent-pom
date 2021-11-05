@@ -35,8 +35,8 @@
 
 	<modules>
 		<module>parent-pom-acceptancetests</module>
-		<module>checkstyle-config</module>
-		<module>checkstyle-parent-pom</module>
+		<module>parent-pom-checkstyle-config</module>
+		<module>parent-pom-checkstyle</module>
 	</modules>
 
 	<scm>
@@ -52,7 +52,7 @@
 	<distributionManagement>
 		<site>
 			<id>devtime-sites</id>
-			<url>${MAVEN_SITE_URL}</url>
+			<url>${MAVEN_SITE_URL}/${project.version}</url>
 		</site>
 		<repository>
 			<id>devtime-releases-repo</id>
@@ -109,6 +109,7 @@
 		<sonar-maven-plugin.version>3.9.0.2155</sonar-maven-plugin.version> <!-- LGPL 3.0 -->
 		<wagon-ssh.version>3.4.3</wagon-ssh.version> <!-- Apache License 2.0 -->
 		<wagon-ftp.version>3.4.3</wagon-ftp.version> <!-- Apache License 2.0 -->
+		<serenity-maven-plugin.version>3.0.2</serenity-maven-plugin.version> <!-- Apache License 2.0 -->
 		<taglist-maven-plugin.version>2.4</taglist-maven-plugin.version> <!-- Apache License 2.0 -->
 		<versions-maven-plugin.version>2.8.1</versions-maven-plugin.version> <!-- Apache License 2.0 -->
 
@@ -147,9 +148,9 @@
 		<!-- Testing dependencies -->
 		<!-- ==================== -->
 		<awaitility.version>4.1.0</awaitility.version> <!-- Apache License 2.0 -->
-		<cucumber-java.version>7.0.0</cucumber-java.version> <!-- MIT License -->
-		<cucumber-java8.version>7.0.0</cucumber-java8.version> <!-- MIT License -->
-		<cucumber-junit.version>7.0.0</cucumber-junit.version> <!-- MIT License -->
+		<cucumber-java.version>6.11.0</cucumber-java.version> <!-- MIT License -->
+		<cucumber-java8.version>6.11.0</cucumber-java8.version> <!-- MIT License -->
+		<cucumber-junit.version>6.11.0</cucumber-junit.version> <!-- MIT License -->
 		<dbunit.version>2.7.2</dbunit.version> <!-- LGPL 2.1 -->
 		<h2database.version>1.4.200</h2database.version> <!-- MPL 2.0 / EPL 1.0 (only usage) -->
 		<hamcrest-all.version>1.3</hamcrest-all.version> <!-- BSD 2 License -->
@@ -160,6 +161,8 @@
 		<junit4.version>4.13.1</junit4.version> <!-- Eclipse Public License 1.0 (only usage) -->
 		<mockftpserver.version>2.7.1</mockftpserver.version> <!-- Apache License 2.0 -->
 		<mockito-all.version>1.10.19</mockito-all.version> <!-- MIT License -->
+		<serenity-cucumber6.version>2.6.0</serenity-cucumber6.version> <!-- Apache License 2.0 -->
+		<serenity.version>3.0.2</serenity.version> <!-- Apache License 2.0 -->
 		<spotify-java-hamcrest.version>1.2.0</spotify-java-hamcrest.version> <!-- Apache License 2.0 -->
 
 		<!-- ==================== -->
@@ -441,7 +444,6 @@
 				<version>${mockftpserver.version}</version>
 				<scope>test</scope>
 			</dependency>
-
 			<!-- mockito-all: Useful mocking framework -->
 			<dependency>
 				<groupId>org.mockito</groupId>
@@ -449,7 +451,13 @@
 				<version>${mockito-all.version}</version>
 				<scope>test</scope>
 			</dependency>
-
+			<!-- serenity-cucumber6: Enables serenity with cucumber tests -->
+			<dependency>
+				<groupId>net.serenity-bdd</groupId>
+				<artifactId>serenity-cucumber6</artifactId>
+				<version>${serenity-cucumber6.version}</version>
+			</dependency>
+			
 			<!-- ==================== -->
 			<!-- Logging Dependencies -->
 			<!-- ==================== -->
@@ -794,6 +802,22 @@
 						<fork>true</fork>
 						<encoding>${project.build.sourceEncoding}</encoding>
 					</configuration>
+				</plugin>
+
+				<!-- Useful plugin that generates a nice html report for cucumber test results -->
+				<plugin>
+					<groupId>net.serenity-bdd.maven.plugins</groupId>
+					<artifactId>serenity-maven-plugin</artifactId>
+					<version>${serenity-maven-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>serenity-reports</id>
+							<phase>post-integration-test</phase>
+							<goals>
+								<goal>aggregate</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 
 				<!-- Simple way to deploy artifacts in a artifactory -->
