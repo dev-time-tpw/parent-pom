@@ -40,4 +40,4 @@ jobs:
           ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
           ARTIFACTORY_TOKEN: ${{ secrets.ARTIFACTORY_TOKEN }}
           MAVEN_SITE_URL: ${{ secrets.MAVEN_SITE_URL }}
-        run: mvn -B -DCI=true deploy --file pom.xml
+        run: mvn -B deploy --file pom.xml
