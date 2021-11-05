@@ -1209,7 +1209,7 @@
 			<id>ci-server-only</id>
 			<activation>
 				<property>
-					<name>!CI</name>
+					<name>!${CI}</name>
 				</property>
 			</activation>
 			<build>
