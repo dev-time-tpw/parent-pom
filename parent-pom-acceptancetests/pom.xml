@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.devtime.common</groupId>
+		<artifactId>parent-pom</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>parent-pom-acceptancetests</artifactId>
+	<packaging>jar</packaging>
+
+	<name>acceptance tests</name>
+	<description>Contains all acceptance tests for this project.</description>
+	<url>http://dev-time.de/javadoc/parent-pom-acceptancetests/index.html</url>
+
+	<scm>
+		<connection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</connection>
+		<developerConnection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</developerConnection>
+		<url>https://github.com/dev-time-tpw/parent-pom/tree/main/parent-pom-acceptancetests</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<!-- Parameter and versions for all plugins and dependencies -->
+	<properties>
+		<readme.to.maven.site.filename>index</readme.to.maven.site.filename>
+
+		<!-- Used by SonarCloud -->
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.organization>devtime</sonar.organization>
+		<sonar.projectKey>devtime_parent-pom-acceptancetests</sonar.projectKey>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.pivovarit</groupId>
+			<artifactId>throwing-function</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- Configure surefire plugin to run the acceptance tests -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>${maven-failsafe-plugin.version}</version>
+					<configuration>
+						<includes>**/*AT.java</includes>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

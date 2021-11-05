@@ -159,10 +159,6 @@
 							<reportSet>
 								<reports>
 									<report>checkstyle</report>
-								</reports>
-							</reportSet>
-							<reportSet>
-								<reports>
 									<report>checkstyle-aggregate</report>
 								</reports>
 							</reportSet>

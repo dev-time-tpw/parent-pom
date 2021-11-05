@@ -147,6 +147,10 @@ To do this, create a `settings.xml` file in your `.m2` directory, which is locat
 </settings>
 ```
 
+### Clone and run a project
+
+Since all the required dependencies are in the JFrog Artifactory, you can simply clone your desired repository with git and then import it into your favorite IDE. For the execution you need <a class="none" href="https://maven.apache.org/download.cgi">Apache Maven</a>.
+
 <a name="about-the-parent-pom"></a>
 
 ## About the parent pom

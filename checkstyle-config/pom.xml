@@ -27,7 +27,6 @@
 	<properties>
 		<checkstyle_configuration_file>src/main/resources/devtime_checks.xml</checkstyle_configuration_file>
 		<readme.to.maven.site.filename>index</readme.to.maven.site.filename>
-		<run.linkchecker>true</run.linkchecker>
 	</properties>
 
 	<dependencies>
