@@ -49,7 +49,7 @@ public class ParentPomCheckstyleSteps {
 
   @When("a checkstyle check is executed with maven sites")
   public void a_checkstyle_check_is_executed_with_maven_sites() throws IOException, InterruptedException {
-    assertThat(executeCommand("test-build", "mvn -B clean verify site", 120), is(true));
+    assertThat(executeCommand("test-build", "mvn -B clean verify site", 180), is(true));
   }
 
   @When("an exception has been defined for this module")

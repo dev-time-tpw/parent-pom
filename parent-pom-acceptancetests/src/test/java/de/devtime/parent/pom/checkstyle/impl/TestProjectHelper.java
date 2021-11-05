@@ -63,7 +63,7 @@ public class TestProjectHelper {
 
   public static final boolean executeCommand(String directory, String command)
       throws IOException, InterruptedException {
-    return executeCommand(directory, command, 30);
+    return executeCommand(directory, command, 60);
   }
 
   public static final boolean executeCommand(String directory, String command, int timeout)
