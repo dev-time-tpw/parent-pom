@@ -52,7 +52,7 @@
 	<distributionManagement>
 		<site>
 			<id>devtime-sites</id>
-			<url>${MAVEN_SITE_URL}/${project.version}</url>
+			<url>${MAVEN_SITE_URL}/${maven.site.version}</url>
 		</site>
 		<repository>
 			<id>devtime-releases-repo</id>
@@ -72,6 +72,7 @@
 		<ejb.version>3.2</ejb.version>
 		<checkstyle.version>9.0.1</checkstyle.version>
 		<readme.to.maven.site.filename>welcome</readme.to.maven.site.filename>
+		<maven.site.version>${project.version}</maven.site.version>
 
 		<!-- Used by Github actions -->
 		<project.scm.id>github</project.scm.id>
@@ -457,7 +458,7 @@
 				<artifactId>serenity-cucumber6</artifactId>
 				<version>${serenity-cucumber6.version}</version>
 			</dependency>
-			
+
 			<!-- ==================== -->
 			<!-- Logging Dependencies -->
 			<!-- ==================== -->
@@ -887,51 +888,52 @@
 					<version>${maven-replacer-plugin.version}</version>
 					<executions>
 						<execution>
+							<id>copy and replace placeholder (README.md)</id>
 							<phase>process-resources</phase>
 							<goals>
 								<goal>replace</goal>
 							</goals>
+							<configuration>
+								<filesToInclude>README.md</filesToInclude>
+								<outputFile>src/site/markdown/${readme.to.maven.site.filename}.md</outputFile>
+								<regex>true</regex>
+								<replacements>
+									<replacement>
+										<token>logo.GitHub.style.plastic</token>
+										<value>logo&#38;#61;GitHub&#38;#38;style&#38;#61;plastic</value>
+									</replacement>
+									<replacement>
+										<token>io.style.plastic</token>
+										<value>io&#38;#38;style&#38;#61;plastic</value>
+									</replacement>
+									<replacement>
+										<token>logo.SonarCloud.server.https</token>
+										<value>logo&#38;#61;SonarCloud&#38;#38;server&#38;#61;https</value>
+									</replacement>
+									<replacement>
+										<token>label.nightly-build.</token>
+										<value>label&#38;#61;nightly-build&#38;#38;</value>
+									</replacement>
+									<replacement>
+										<token>.metric.</token>
+										<value>&#38;#38;metric&#38;#61;</value>
+									</replacement>
+									<replacement>
+										<token>logo.SonarCloud.server.</token>
+										<value>logo&#38;#61;SonarCloud&#38;#38;serverlogo&#38;#61;</value>
+									</replacement>
+									<replacement>
+										<token>&#60;a href&#61;</token>
+										<value>&#60;a class&#61;"none" href&#61;</value>
+									</replacement>
+									<replacement>
+										<token>&#60;!-- anker for maven site (.*) --&#62;</token>
+										<value>$1</value>
+									</replacement>
+								</replacements>
+							</configuration>
 						</execution>
 					</executions>
-					<configuration>
-						<filesToInclude>README.md</filesToInclude>
-						<outputFile>src/site/markdown/${readme.to.maven.site.filename}.md</outputFile>
-						<regex>true</regex>
-						<replacements>
-							<replacement>
-								<token>logo.GitHub.style.plastic</token>
-								<value>logo&#38;#61;GitHub&#38;#38;style&#38;#61;plastic</value>
-							</replacement>
-							<replacement>
-								<token>io.style.plastic</token>
-								<value>io&#38;#38;style&#38;#61;plastic</value>
-							</replacement>
-							<replacement>
-								<token>logo.SonarCloud.server.https</token>
-								<value>logo&#38;#61;SonarCloud&#38;#38;server&#38;#61;https</value>
-							</replacement>
-							<replacement>
-								<token>label.nightly-build.</token>
-								<value>label&#38;#61;nightly-build&#38;#38;</value>
-							</replacement>
-							<replacement>
-								<token>.metric.</token>
-								<value>&#38;#38;metric&#38;#61;</value>
-							</replacement>
-							<replacement>
-								<token>logo.SonarCloud.server.</token>
-								<value>logo&#38;#61;SonarCloud&#38;#38;serverlogo&#38;#61;</value>
-							</replacement>
-							<replacement>
-								<token>&#60;a href&#61;</token>
-								<value>&#60;a class&#61;"none" href&#61;</value>
-							</replacement>
-							<replacement>
-								<token>&#60;!-- anker for maven site (.*) --&#62;</token>
-								<value>$1</value>
-							</replacement>
-						</replacements>
-					</configuration>
 				</plugin>
 
 				<!-- Enables additional source directories for generated sources -->

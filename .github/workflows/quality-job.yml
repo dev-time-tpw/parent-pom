@@ -76,7 +76,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           MAVEN_SITE_URL: ${{ secrets.MAVEN_SITE_URL }}
-        run: mvn -B -DCI=true verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar site site:stage site:stage-deploy
+        run: mvn -B -DCI=true verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar site site:stage site:stage-deploy -Dmaven.site.version=current
       - name: No analyse necessary
         if: env.LAST_COMMIT > 0
         run: echo "There was no commit since the last" $LAST_COMMIT "days. No analysis necessary."
