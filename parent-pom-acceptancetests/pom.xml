@@ -13,7 +13,7 @@
 	<packaging>jar</packaging>
 
 	<name>acceptance tests</name>
-	<description>Contains all acceptance tests for this project.</description>
+	<description>Contains all acceptance tests for this project. All requirements and acceptance test results are located in the Serenity BDD report.</description>
 	<url>http://dev-time.de/javadoc/parent-pom-acceptancetests/index.html</url>
 
 	<scm>
