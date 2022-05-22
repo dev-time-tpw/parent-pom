@@ -1,0 +1,1416 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.devtime.common</groupId>
+    <artifactId>parent-pom-build</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>parent-pom</artifactId>
+  <packaging>pom</packaging>
+
+  <name>dev|time</name>
+  <description>Contains common configuration and dependencies for all dev|time projects.</description>
+  <url>http://dev-time.de/javadoc/welcome.html</url>
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>devtime</id>
+      <name>dev|time</name>
+      <email>dev.time.tpw@gmail.com</email>
+      <roles>
+        <role>Architect</role>
+        <role>Developer</role>
+        <role>Tester</role>
+      </roles>
+      <timezone>GMT+1</timezone>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</connection>
+    <developerConnection>scm:git:https://github.com/dev-time-tpw/parent-pom.git</developerConnection>
+    <url>https://github.com/dev-time-tpw/parent-pom</url>
+    <tag>HEAD</tag>
+  </scm>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/dev-time-tpw/parent-pom/issues</url>
+  </issueManagement>
+  <distributionManagement>
+    <site>
+      <id>devtime-sites</id>
+      <url>${MAVEN_SITE_URL}/${maven.site.version}</url>
+    </site>
+    <repository>
+      <id>devtime-releases-repo</id>
+      <name>devtime-releases-repo</name>
+      <url>https://devtime.jfrog.io/artifactory/devtime-release</url>
+    </repository>
+    <snapshotRepository>
+      <id>devtime-snapshots-repo</id>
+      <name>devtime-snapshots-repo</name>
+      <url>https://devtime.jfrog.io/artifactory/devtime-snapshot</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <!-- Parameter and versions for all plugins and dependencies -->
+  <properties>
+    <java.version>1.8</java.version>
+    <ejb.version>3.2</ejb.version>
+    <checkstyle.version>9.0.1</checkstyle.version>
+    <readme.to.maven.site.filename>welcome</readme.to.maven.site.filename>
+    <maven.site.version>${project.version}</maven.site.version>
+
+    <!-- Used by Github actions -->
+    <project.scm.id>github</project.scm.id>
+
+    <!-- Used by SonarCloud -->
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.organization>devtime</sonar.organization>
+    <sonar.projectKey>devtime_parent-pom</sonar.projectKey>
+    <!-- solution for StackOverflowError problem (@see: https://community.sonarsource.com/t/stackoverflowerror-at-defaultinputcomponent-equals/20324) -->
+    <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
+
+    <!-- maven site skin versions -->
+    <maven-fluido-skin.version>1.9</maven-fluido-skin.version>
+
+    <!-- Plugin versions -->
+    <artifactory-maven-plugin.version>3.2.3</artifactory-maven-plugin.version> <!-- Apache License 2.0 -->
+    <build-helper-maven-plugin.version>3.2.0</build-helper-maven-plugin.version> <!-- MIT -->
+    <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version> <!-- EPL 2.0 -->
+    <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version> <!-- Apache License 2.0 -->
+    <maven-changes-plugin.version>2.12.1</maven-changes-plugin.version> <!-- Apache License 2.0 -->
+    <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version> <!-- Apache License 2.0 -->
+    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version> <!-- Apache License 2.0 -->
+    <maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version> <!-- Apache License 2.0 -->
+    <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version> <!-- Apache License 2.0 -->
+    <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version> <!-- Apache License 2.0 -->
+    <maven-javadoc-plugin.version>3.3.1</maven-javadoc-plugin.version> <!-- Apache License 2.0 -->
+    <maven-jxr-plugin.version>3.1.1</maven-jxr-plugin.version> <!-- Apache License 2.0 -->
+    <maven-project-info-reports-plugin.version>3.1.2</maven-project-info-reports-plugin.version> <!-- Apache License 2.0 -->
+    <maven-release-plugin.version>3.0.0-M4</maven-release-plugin.version> <!-- Apache License 2.0 -->
+    <maven-replacer-plugin.version>1.4.1</maven-replacer-plugin.version> <!-- MIT -->
+    <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version> <!-- Apache License 2.0 -->
+    <maven-site-plugin.version>3.9.1</maven-site-plugin.version> <!-- Apache License 2.0 -->
+    <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version> <!-- Apache License 2.0 -->
+    <maven-war-plugin.version>3.3.1</maven-war-plugin.version> <!-- Apache License 2.0 -->
+    <sonar-maven-plugin.version>3.9.0.2155</sonar-maven-plugin.version> <!-- LGPL 3.0 -->
+    <wagon-ssh.version>3.4.3</wagon-ssh.version> <!-- Apache License 2.0 -->
+    <wagon-ftp.version>3.4.3</wagon-ftp.version> <!-- Apache License 2.0 -->
+    <serenity-maven-plugin.version>3.0.2</serenity-maven-plugin.version> <!-- Apache License 2.0 -->
+    <taglist-maven-plugin.version>2.4</taglist-maven-plugin.version> <!-- Apache License 2.0 -->
+    <versions-maven-plugin.version>2.8.1</versions-maven-plugin.version> <!-- Apache License 2.0 -->
+
+    <!-- ===================== -->
+    <!-- dev|time dependencies -->
+    <!-- ===================== -->
+    <java-utils.version>0.0.1-SNAPSHOT</java-utils.version>
+
+    <!-- =================== -->
+    <!-- Common dependencies -->
+    <!-- =================== -->
+    <cloning.version>1.9.12</cloning.version> <!-- Apache License 2.0 -->
+    <commons-codec.version>1.15</commons-codec.version> <!-- Apache License 2.0 -->
+    <commons-collections4.version>4.4</commons-collections4.version> <!-- Apache License 2.0 -->
+    <commons-io.version>2.11.0</commons-io.version> <!-- Apache License 2.0 -->
+    <commons-lang3.version>3.12.0</commons-lang3.version> <!-- Apache License 2.0 -->
+    <commons-math3.version>3.6.1</commons-math3.version> <!-- Apache License 2.0 -->
+    <commons-validator.version>1.7</commons-validator.version> <!-- Apache License 2.0 -->
+    <controlsfx.version>11.1.0</controlsfx.version> <!-- The 3-Clause BSD License -->
+    <guava.version>30.1.1-jre</guava.version> <!-- Apache License 2.0 -->
+    <hibernate-annotations.version>3.5.6-Final</hibernate-annotations.version> <!-- GNU Lesser General Public License v2.1 -->
+    <hibernate-commons-annotations.version>5.1.2.Final</hibernate-commons-annotations.version> <!-- GNU Lesser General Public License v2.1 -->
+    <hibernate-core.version>5.2.12.Final</hibernate-core.version> <!-- GNU Lesser General Public License v2.1 -->
+    <hibernate-entitymanager.version>5.5.7.Final</hibernate-entitymanager.version> <!-- GNU Lesser General Public License v2.1 -->
+    <hibernate-jpa-2.1-api.version>1.0.2.Final</hibernate-jpa-2.1-api.version> <!-- EPL 1.0 (only usage) / EDL 1.0 -->
+    <hibernate-search-orm.version>5.11.9.Final</hibernate-search-orm.version> <!-- GNU Lesser General Public License v2.1 -->
+    <jboss-javaee-7.0.version>1.1.1.Final</jboss-javaee-7.0.version> <!-- GNU Lesser General Public License v2.1 -->
+    <jfreechart.version>1.5.3</jfreechart.version> <!-- GNU Lesser General Public License v3 -->
+    <quartz.version>2.3.2</quartz.version> <!-- Apache License 2.0 -->
+    <opencsv.version>5.5.2</opencsv.version> <!-- Apache License 2.0 -->
+    <reflections.version>0.9.12</reflections.version> <!-- BSD 2-clause -->
+    <throwing-function.version>1.5.1</throwing-function.version> <!-- Apache License 2.0 -->
+
+
+    <!-- ==================== -->
+    <!-- Testing dependencies -->
+    <!-- ==================== -->
+    <awaitility.version>4.1.0</awaitility.version> <!-- Apache License 2.0 -->
+    <cucumber-java.version>6.11.0</cucumber-java.version> <!-- MIT License -->
+    <cucumber-java8.version>6.11.0</cucumber-java8.version> <!-- MIT License -->
+    <cucumber-junit.version>6.11.0</cucumber-junit.version> <!-- MIT License -->
+    <dbunit.version>2.7.2</dbunit.version> <!-- LGPL 2.1 -->
+    <h2database.version>1.4.200</h2database.version> <!-- MPL 2.0 / EPL 1.0 (only usage) -->
+    <hamcrest-all.version>1.3</hamcrest-all.version> <!-- BSD 2 License -->
+    <hamcrest-date.version>2.0.7</hamcrest-date.version> <!-- BSD 2 License -->
+    <hamcrest-jackson.version>1.2.0</hamcrest-jackson.version> <!-- Apache License 2.0 -->
+    <hamcrest-pojo.version>1.2.0</hamcrest-pojo.version> <!-- Apache License 2.0 -->
+    <jacoco.core.version>0.8.7</jacoco.core.version> <!-- Eclipse Public License 2.0 (only usage) -->
+    <junit4.version>4.13.1</junit4.version> <!-- Eclipse Public License 1.0 (only usage) -->
+    <mockftpserver.version>2.7.1</mockftpserver.version> <!-- Apache License 2.0 -->
+    <mockito-all.version>1.10.19</mockito-all.version> <!-- MIT License -->
+    <serenity-cucumber6.version>2.6.0</serenity-cucumber6.version> <!-- Apache License 2.0 -->
+    <serenity.version>3.0.2</serenity.version> <!-- Apache License 2.0 -->
+    <spotify-java-hamcrest.version>1.2.0</spotify-java-hamcrest.version> <!-- Apache License 2.0 -->
+
+    <!-- ==================== -->
+    <!-- Logging dependencies -->
+    <!-- ==================== -->
+    <log4j-api.version>2.14.1</log4j-api.version> <!-- Apache License 2.0 -->
+    <log4j-core.version>2.14.1</log4j-core.version> <!-- Apache License 2.0 -->
+    <log4j-slf4j-impl.version>2.14.1</log4j-slf4j-impl.version> <!-- Apache License 2.0 -->
+    <slf4j-api.version>1.7.32</slf4j-api.version>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+
+      <!-- ===================== -->
+      <!-- dev|time dependencies -->
+      <!-- ===================== -->
+
+
+      <!-- =================== -->
+      <!-- Common dependencies -->
+      <!-- =================== -->
+
+      <!-- cloning: Useful utils for (deep) cloning -->
+      <dependency>
+        <groupId>uk.com.robust-it</groupId>
+        <artifactId>cloning</artifactId>
+        <version>${cloning.version}</version>
+      </dependency>
+      <!-- commons-codec: Useful utils for encoding and decoding -->
+      <dependency>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>${commons-codec.version}</version>
+      </dependency>
+      <!-- commons-collections4: Useful extension for Java Collections -->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-collections4</artifactId>
+        <version>${commons-collections4.version}</version>
+      </dependency>
+      <!-- commons-io: Useful utils for accessing the file system -->
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${commons-io.version}</version>
+      </dependency>
+      <!-- commons-lang3: Useful extension for classes from the package java.lang -->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons-lang3.version}</version>
+      </dependency>
+      <!-- commons-math3: Useful lightweight mathematical and statistical utils -->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-math3</artifactId>
+        <version>${commons-math3.version}</version>
+      </dependency>
+      <!-- commons-validator: Useful validators -->
+      <dependency>
+        <groupId>commons-validator</groupId>
+        <artifactId>commons-validator</artifactId>
+        <version>${commons-validator.version}</version>
+      </dependency>
+      <!-- controlsfx: Useful and high quality UI elements and tools for JavaFX -->
+      <dependency>
+        <groupId>org.controlsfx</groupId>
+        <artifactId>controlsfx</artifactId>
+        <version>${controlsfx.version}</version>
+      </dependency>
+      <!-- guava: Useful utils from Google -->
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+      <!-- hibernate-annotations: Enables the use of Hibernate annotations -->
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-annotations</artifactId>
+        <version>${hibernate-annotations.version}</version>
+      </dependency>
+      <!-- hibernate-commons-annotations: Enables the use of Hibernate annotations -->
+      <dependency>
+        <groupId>org.hibernate.common</groupId>
+        <artifactId>hibernate-commons-annotations</artifactId>
+        <version>${hibernate-commons-annotations.version}</version>
+      </dependency>
+      <!-- hibernate-entitymanager: Enables the usage of the hibernate entity manager -->
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-entitymanager</artifactId>
+        <version>${hibernate-entitymanager.version}</version>
+      </dependency>
+      <!-- hibernate-jpa-2.1-api: Enables the usage of JPA 2.1 in hibernate -->
+      <dependency>
+        <groupId>org.hibernate.javax.persistence</groupId>
+        <artifactId>hibernate-jpa-2.1-api</artifactId>
+        <version>${hibernate-jpa-2.1-api.version}</version>
+      </dependency>
+      <!-- hibernate-search-orm: Enables the hibernate search ORM -->
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-search-orm</artifactId>
+        <version>${hibernate-search-orm.version}</version>
+      </dependency>
+      <!-- jboss-javaee-7.0: Enables support for JBoss 7 -->
+      <dependency>
+        <groupId>org.jboss.spec</groupId>
+        <artifactId>jboss-javaee-7.0</artifactId>
+        <version>${jboss-javaee-7.0.version}</version>
+        <type>pom</type>
+        <scope>provided</scope>
+      </dependency>
+      <!-- jfreechart: Useful for plotting und charts (based on Swing) -->
+      <dependency>
+        <groupId>org.jfree</groupId>
+        <artifactId>jfreechart</artifactId>
+        <version>${jfreechart.version}</version>
+      </dependency>
+      <!-- quartz: Useful for scheduled executions -->
+      <dependency>
+        <groupId>org.quartz-scheduler</groupId>
+        <artifactId>quartz</artifactId>
+        <version>${quartz.version}</version>
+      </dependency>
+      <!-- resteasy-client: Support for an easy REST client -->
+      <dependency>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-client</artifactId>
+        <version>resteasy-client.version</version>
+      </dependency>
+      <!-- opencsv: Useful support for CSV files -->
+      <dependency>
+        <groupId>com.opencsv</groupId>
+        <artifactId>opencsv</artifactId>
+        <version>${opencsv.version}</version>
+      </dependency>
+      <!-- reflections: Useful reflection utils -->
+      <dependency>
+        <groupId>org.reflections</groupId>
+        <artifactId>reflections</artifactId>
+        <version>${reflections.version}</version>
+      </dependency>
+      <!-- throwing-function: Useful support for java 8 lambda expressions with checked exceptions -->
+      <dependency>
+        <groupId>com.pivovarit</groupId>
+        <artifactId>throwing-function</artifactId>
+        <version>${throwing-function.version}</version>
+      </dependency>
+
+      <!-- ==================== -->
+      <!-- Testing dependencies -->
+      <!-- ==================== -->
+      <!-- It is only for test libraries in DependencyManagement that the scope test is explicitly specified. -->
+      <!-- For all other dependencies the scope has to be set in the using modules! -->
+      <!-- @see: https://stackoverflow.com/questions/15221299/dependencymanagement-and-scope -->
+
+      <!-- awaitility: Useful utils to test asynchrony services (fluent notation supported) -->
+      <dependency>
+        <groupId>org.awaitility</groupId>
+        <artifactId>awaitility</artifactId>
+        <version>${awaitility.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <!-- cucumber-java/junit: Supports BDD testing with annotations -->
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java</artifactId>
+        <version>${cucumber-java.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit</artifactId>
+        <version>${cucumber-junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <!-- cucumber-java: Supports BDD testing with lambda notation -->
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java8</artifactId>
+        <version>${cucumber-java8.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <!-- dbunit: Useful junit extension for DB testing -->
+      <dependency>
+        <groupId>org.dbunit</groupId>
+        <artifactId>dbunit</artifactId>
+        <version>${dbunit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <!-- h2: Useful embedded database -->
+      <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>${h2database.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <!-- hamcrest-all: Useful matchers for tests that makes test implementation more readable (fluent notation supported) -->
+      <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-all</artifactId>
+        <version>${hamcrest-all.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <!-- hamcrest-date: Useful extension of hamcrest with matchers for date validation (fluent notation supported) -->
+      <dependency>
+        <groupId>org.exparity</groupId>
+        <artifactId>hamcrest-date</artifactId>
+        <version>${hamcrest-date.version}</version>
+        <scope>test</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <!-- hamcrest-jackson: Useful extension of hamcrest with matchers for JSON validation (fluent notation supported) -->
+      <dependency>
+        <groupId>com.spotify</groupId>
+        <artifactId>hamcrest-jackson</artifactId>
+        <version>${spotify-java-hamcrest.version}</version>
+        <scope>test</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <!-- hamcrest-pojo: Useful extension of hamcrest with matchers to validate POJOs (fluent notation supported) -->
+      <dependency>
+        <groupId>com.spotify</groupId>
+        <artifactId>hamcrest-pojo</artifactId>
+        <version>${spotify-java-hamcrest.version}</version>
+        <scope>test</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <!-- hamcrest-optional: Useful extension of hamcrest with validators for java.util.Optional -->
+      <dependency>
+        <groupId>com.spotify</groupId>
+        <artifactId>hamcrest-optional</artifactId>
+        <version>${spotify-java-hamcrest.version}</version>
+        <scope>test</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <!-- junit: JUnit 4.x support -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit4.version}</version>
+        <scope>test</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <!-- MockFtpServer: Useful mocking framework for FTP -->
+      <dependency>
+        <groupId>org.mockftpserver</groupId>
+        <artifactId>MockFtpServer</artifactId>
+        <version>${mockftpserver.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <!-- mockito-all: Useful mocking framework -->
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-all</artifactId>
+        <version>${mockito-all.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <!-- serenity-cucumber6: Enables serenity with cucumber tests -->
+      <dependency>
+        <groupId>net.serenity-bdd</groupId>
+        <artifactId>serenity-cucumber6</artifactId>
+        <version>${serenity-cucumber6.version}</version>
+      </dependency>
+
+      <!-- ==================== -->
+      <!-- Logging Dependencies -->
+      <!-- ==================== -->
+
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-api</artifactId>
+        <version>${log4j-api.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>${log4j-core.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-slf4j-impl</artifactId>
+        <version>${log4j-slf4j-impl.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j-api.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <!-- Common dependencies which all projects use -->
+  <dependencies>
+
+    <!-- =================== -->
+    <!-- Common dependencies -->
+    <!-- =================== -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+    </dependency>
+
+    <!-- ==================== -->
+    <!-- Testing dependencies -->
+    <!-- ==================== -->
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-all</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exparity</groupId>
+      <artifactId>hamcrest-date</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.spotify</groupId>
+      <artifactId>hamcrest-jackson</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.spotify</groupId>
+      <artifactId>hamcrest-pojo</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.spotify</groupId>
+      <artifactId>hamcrest-optional</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+    </dependency>
+
+    <!-- ==================== -->
+    <!-- Logging dependencies -->
+    <!-- ==================== -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+    <!-- Use public maven repositories for public dependencies -->
+    <repository>
+      <id>central</id>
+      <url>https://repo1.maven.org/maven2/</url>
+    </repository>
+    <repository>
+      <id>jcenter</id>
+      <url>https://jcenter.bintray.com</url>
+    </repository>
+    <repository>
+      <id>JBoss Repository</id>
+      <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+    </repository>
+    <repository>
+      <id>redhat</id>
+      <url>https://maven.repository.redhat.com/ga/</url>
+    </repository>
+
+    <!-- SNAPSHOT repository for our dependencies -->
+    <repository>
+      <id>devtime-snapshots-repo</id>
+      <name>devtime-snapshot</name>
+      <url>https://devtime.jfrog.io/artifactory/devtime-snapshot</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>fail</checksumPolicy>
+      </snapshots>
+    </repository>
+
+    <!-- RELEASE repository for our dependencies -->
+    <repository>
+      <id>devtime-releases-repo</id>
+      <name>devtime-release</name>
+      <url>https://devtime.jfrog.io/artifactory/devtime-release</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>fail</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <!-- Use public maven respositories for public plugin dependencies -->
+    <pluginRepository>
+      <id>central</id>
+      <url>https://repo1.maven.org/maven2/</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>jcenter</id>
+      <url>https://jcenter.bintray.com</url>
+    </pluginRepository>
+
+    <!-- SNAPSHOT repository for own plugin dependencies -->
+    <pluginRepository>
+      <id>devtime-snapshots-repo</id>
+      <name>devtime-snapshot</name>
+      <url>https://devtime.jfrog.io/artifactory/devtime-snapshot</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>fail</checksumPolicy>
+      </snapshots>
+    </pluginRepository>
+
+    <!-- RELEASE repository for own plugin dependencies -->
+    <pluginRepository>
+      <id>devtime-releases-repo</id>
+      <name>devtime-release</name>
+      <url>https://devtime.jfrog.io/artifactory/devtime-release</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>fail</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <build>
+    <!-- Default maven resources structure -->
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**</include>
+        </includes>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>src/site/markdown</directory>
+      </resource>
+      <resource>
+        <directory>src/site/resources</directory>
+      </resource>
+      <resource>
+        <directory>${project.build.directory}/generated-sources</directory>
+      </resource>
+      <resource>
+        <directory>${project.build.directory}/generated-resources</directory>
+      </resource>
+    </resources>
+    <!-- Default maven test resources structure -->
+    <testResources>
+      <testResource>
+        <directory>src/test/java</directory>
+        <includes>
+          <include>**</include>
+        </includes>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </testResource>
+      <testResource>
+        <directory>src/test/resources</directory>
+      </testResource>
+    </testResources>
+
+    <pluginManagement>
+      <plugins>
+        <!-- Useful util to determine code coverage during testing -->
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>${jacoco-maven-plugin.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>prepare-agent</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>report</id>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>report</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <excludes>
+              <!-- Ignore test classes while determining the code coverage -->
+              <!-- @see: https://stackoverflow.com/questions/63321758/exclude-test-directories-in-multi-module-maven-projecty-from-jacoco-when-using-a -->
+              <exclude>de/devtime/test/*</exclude>
+            </excludes>
+            <reportSets>
+              <reportSet>
+                <reports>
+                  <report>report</report>
+                </reports>
+              </reportSet>
+            </reportSets>
+          </configuration>
+        </plugin>
+
+        <!-- Enables access to the JFrog Artifactory while deploying artifacts -->
+        <plugin>
+          <groupId>org.jfrog.buildinfo</groupId>
+          <artifactId>artifactory-maven-plugin</artifactId>
+          <version>${artifactory-maven-plugin.version}</version>
+          <inherited>true</inherited>
+          <executions>
+            <execution>
+              <id>build-info</id>
+              <goals>
+                <goal>publish</goal>
+              </goals>
+              <configuration>
+                <artifactory>
+                  <includeEnvVars>true</includeEnvVars>
+                  <envVarsExcludePatterns>*password*,*secret*,*key*,*token*,*passphrase*</envVarsExcludePatterns>
+                  <timeoutSec>60</timeoutSec>
+                </artifactory>
+                <publisher>
+                  <publishArtifacts>true</publishArtifacts>
+                  <publishBuildInfo>false</publishBuildInfo>
+                  <contextUrl>https://devtime.jfrog.io/artifactory</contextUrl>
+                  <username>${ARTIFACTORY_USERNAME}</username>
+                  <password>${ARTIFACTORY_TOKEN}</password>
+                  <repoKey>devtime-release</repoKey>
+                  <snapshotRepoKey>devtime-snapshot</snapshotRepoKey>
+                </publisher>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- This plugin provides several nice feature for build tasks -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>${build-helper-maven-plugin.version}</version>
+        </plugin>
+
+        <!-- A Maven plugin to create archives of your project's sources, classes, dependencies etc. from flexible assembly 
+          descriptors. -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>${maven-assembly-plugin.version}</version>
+          <executions>
+            <execution>
+              <id>package maven sites</id>
+              <phase>post-site</phase>
+              <goals>
+                <goal>single</goal>
+              </goals>
+              <configuration>
+                <descriptors>
+                  <descriptor>src/main/assembly/mavensite.xml</descriptor>
+                </descriptors>
+                <!-- <ignoreMissingDescriptor>true</ignoreMissingDescriptor> -->
+                <!-- <attach>true</attach> -->
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- This plugin provides static code analysis tools -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>${maven-checkstyle-plugin.version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-changes-plugin</artifactId>
+          <version>${maven-changes-plugin.version}</version>
+        </plugin>
+
+        <!-- Several compile configuration for all projects -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven-compiler-plugin.version}</version>
+          <configuration>
+            <source>${java.version}</source>
+            <target>${java.version}</target>
+            <compilerVersion>${java.version}</compilerVersion>
+            <showDeprecation>true</showDeprecation>
+            <showWarnings>true</showWarnings>
+            <fork>true</fork>
+            <encoding>${project.build.sourceEncoding}</encoding>
+          </configuration>
+        </plugin>
+
+        <!-- Useful plugin that generates a nice html report for cucumber test results -->
+        <plugin>
+          <groupId>net.serenity-bdd.maven.plugins</groupId>
+          <artifactId>serenity-maven-plugin</artifactId>
+          <version>${serenity-maven-plugin.version}</version>
+          <executions>
+            <execution>
+              <id>serenity-reports</id>
+              <phase>post-integration-test</phase>
+              <goals>
+                <goal>aggregate</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- Simple way to deploy artifacts in a artifactory -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${maven-deploy-plugin.version}</version>
+        </plugin>
+
+        <!-- Plugin that runs integration tests -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${maven-failsafe-plugin.version}</version>
+          <executions>
+            <execution>
+              <id>integration-test</id>
+              <goals>
+                <goal>integration-test</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>verify</id>
+              <goals>
+                <goal>verify</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- Supports creation of JavaDoc API documents -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${maven-javadoc-plugin.version}</version>
+        </plugin>
+
+        <!-- Enables source code cross references -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jxr-plugin</artifactId>
+          <version>${maven-jxr-plugin.version}</version>
+        </plugin>
+
+        <!-- Enables project information in maven sites -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>${maven-project-info-reports-plugin.version}</version>
+        </plugin>
+
+        <!-- Enables creation of releases of our artifacts -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>${maven-release-plugin.version}</version>
+          <configuration>
+            <tagNameFormat>v@{project.version}</tagNameFormat>
+          </configuration>
+        </plugin>
+
+        <!-- Copy the README.md to welcome.md in the maven sites and correct some items to be compatible -->
+        <!-- to maven site conventions. -->
+        <plugin>
+          <groupId>com.google.code.maven-replacer-plugin</groupId>
+          <artifactId>maven-replacer-plugin</artifactId>
+          <version>${maven-replacer-plugin.version}</version>
+          <executions>
+            <execution>
+              <id>copy and replace placeholder (README.md)</id>
+              <phase>process-resources</phase>
+              <goals>
+                <goal>replace</goal>
+              </goals>
+              <configuration>
+                <filesToInclude>README.md</filesToInclude>
+                <outputFile>src/site/markdown/${readme.to.maven.site.filename}.md</outputFile>
+                <regex>true</regex>
+                <replacements>
+                  <replacement>
+                    <token>logo.GitHub.style.plastic</token>
+                    <value>logo&#38;#61;GitHub&#38;#38;style&#38;#61;plastic</value>
+                  </replacement>
+                  <replacement>
+                    <token>io.style.plastic</token>
+                    <value>io&#38;#38;style&#38;#61;plastic</value>
+                  </replacement>
+                  <replacement>
+                    <token>logo.SonarCloud.server.https</token>
+                    <value>logo&#38;#61;SonarCloud&#38;#38;server&#38;#61;https</value>
+                  </replacement>
+                  <replacement>
+                    <token>label.nightly-build.</token>
+                    <value>label&#38;#61;nightly-build&#38;#38;</value>
+                  </replacement>
+                  <replacement>
+                    <token>.metric.</token>
+                    <value>&#38;#38;metric&#38;#61;</value>
+                  </replacement>
+                  <replacement>
+                    <token>logo.SonarCloud.server.</token>
+                    <value>logo&#38;#61;SonarCloud&#38;#38;serverlogo&#38;#61;</value>
+                  </replacement>
+                  <replacement>
+                    <token>&#60;a href&#61;</token>
+                    <value>&#60;a class&#61;"none" href&#61;</value>
+                  </replacement>
+                  <replacement>
+                    <token>&#60;!-- anker for maven site (.*) --&#62;</token>
+                    <value>$1</value>
+                  </replacement>
+                </replacements>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- Enables additional source directories for generated sources -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${maven-resources-plugin.version}</version>
+        </plugin>
+
+        <!-- Creates maven sites -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${maven-site-plugin.version}</version>
+          <configuration>
+            <locales>en</locales>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.apache.maven.wagon</groupId>
+              <artifactId>wagon-ssh</artifactId>
+              <version>${wagon-ssh.version}</version>
+            </dependency>
+            <!-- <dependency> -->
+            <!-- <groupId>org.apache.maven.wagon</groupId> -->
+            <!-- <artifactId>wagon-ftp</artifactId> -->
+            <!-- <version>${wagon-ftp.version}</version> -->
+            <!-- </dependency> -->
+          </dependencies>
+        </plugin>
+
+        <!-- Plugin that runs unit tests -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${maven-surefire-plugin.version}</version>
+        </plugin>
+
+        <!-- Plugin that reports results of unit tests -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-report-plugin</artifactId>
+          <version>${maven-surefire-plugin.version}</version>
+        </plugin>
+
+        <!-- Enables creation of WAR container -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>${maven-war-plugin.version}</version>
+        </plugin>
+
+        <!-- Enables SonarQube/SonarCloud Scanner -->
+        <plugin>
+          <groupId>org.sonarsource.scanner.maven</groupId>
+          <artifactId>sonar-maven-plugin</artifactId>
+          <version>${sonar-maven-plugin.version}</version>
+        </plugin>
+
+        <!-- Enables tracking of different tags -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>taglist-maven-plugin</artifactId>
+          <version>${taglist-maven-plugin.version}</version>
+        </plugin>
+
+        <!-- Allows to check dependency versions for updates -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>versions-maven-plugin</artifactId>
+          <version>${versions-maven-plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>com.google.code.maven-replacer-plugin</groupId>
+        <artifactId>maven-replacer-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.jfrog.buildinfo</groupId>
+        <artifactId>artifactory-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>taglist-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-changes-plugin</artifactId>
+        <configuration>
+          <!-- TODO add github report -->
+          <!-- see: https://maven.apache.org/plugins/maven-changes-plugin/examples/configuring-github-report.html -->
+          <!-- <onlyCurrentVersion>true</onlyCurrentVersion> -->
+          <githubAPIScheme>https</githubAPIScheme>
+          <githubAPIPort>443</githubAPIPort>
+          <includeOpenIssues>true</includeOpenIssues>
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>github-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <id>default</id>
+            <reports>
+              <report>javadoc</report>
+            </reports>
+          </reportSet>
+          <reportSet>
+            <id>aggregate</id>
+            <reports>
+              <report>aggregate</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>index</report>
+              <report>summary</report>
+              <report>dependency-info</report>
+              <report>modules</report>
+              <report>team</report>
+              <report>scm</report>
+              <report>issue-management</report>
+              <report>mailing-lists</report>
+              <report>dependency-management</report>
+              <report>dependencies</report>
+              <report>dependency-convergence</report>
+              <report>ci-management</report>
+              <report>plugin-management</report>
+              <report>plugins</report>
+              <report>distribution-management</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <configuration>
+          <aggregate>true</aggregate>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>jxr-no-fork</report>
+            </reports>
+          </reportSet>
+          <reportSet>
+            <id>aggregate</id>
+            <reports>
+              <report>aggregate</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <!-- Taglist Plugin must be executed after JXR Plugin -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>taglist-maven-plugin</artifactId>
+        <configuration>
+          <tagListOptions>
+            <tagClasses>
+              <tagClass>
+                <displayName>FIXME Work</displayName>
+                <tags>
+                  <tag>
+                    <matchString>fixme</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                  <tag>
+                    <matchString>@fixme</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                </tags>
+              </tagClass>
+              <tagClass>
+                <displayName>Todo Work</displayName>
+                <tags>
+                  <tag>
+                    <matchString>todo</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                  <tag>
+                    <matchString>@todo</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                </tags>
+              </tagClass>
+              <tagClass>
+                <displayName>XXX Work</displayName>
+                <tags>
+                  <tag>
+                    <matchString>xxx</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                  <tag>
+                    <matchString>@xxx</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                </tags>
+              </tagClass>
+              <tagClass>
+                <displayName>Deprecated Work</displayName>
+                <tags>
+                  <tag>
+                    <matchString>@deprecated</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                </tags>
+              </tagClass>
+            </tagClasses>
+          </tagListOptions>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>dependency-updates-report</report>
+              <report>plugin-updates-report</report>
+              <report>property-updates-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  <profiles>
+    <!-- Some configurations that should be set on non CI environments, e.g. skip integration tests -->
+    <profile>
+      <id>ci-server-only</id>
+      <activation>
+        <property>
+          <name>!CI</name>
+        </property>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <!-- Skip long running integration tests on non CI environments -->
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-failsafe-plugin</artifactId>
+              <version>${maven-failsafe-plugin.version}</version>
+              <configuration>
+                <skip>true</skip>
+              </configuration>
+            </plugin>
+
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+
+    <!-- If you use eclipse then you want to suppress some warnings while maven build and you want use the -->
+    <!-- maven-eclipse-plugin to setup eclipse configuration by pom..xml -->
+    <profile>
+      <id>only-eclipse</id>
+      <activation>
+        <property>
+          <name>m2e.version</name>
+        </property>
+      </activation>
+      <properties>
+        <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version> <!-- EPL-2.0 (?) -->
+        <maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version> <!-- Apache License 2.0 -->
+      </properties>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <!-- This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven 
+              build itself. -->
+            <plugin>
+              <groupId>org.eclipse.m2e</groupId>
+              <artifactId>lifecycle-mapping</artifactId>
+              <version>${lifecycle-mapping.version}</version>
+              <configuration>
+                <lifecycleMappingMetadata>
+                  <pluginExecutions>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>
+                          jacoco-maven-plugin
+                        </artifactId>
+                        <versionRange>
+                          [0.5.7.201204190339,)
+                        </versionRange>
+                        <goals>
+                          <goal>prepare-agent</goal>
+                        </goals>
+                      </pluginExecutionFilter>
+                      <action>
+                        <ignore />
+                      </action>
+                    </pluginExecution>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
+                        <groupId>
+                          org.jfrog.buildinfo
+                        </groupId>
+                        <artifactId>
+                          artifactory-maven-plugin
+                        </artifactId>
+                        <versionRange>
+                          [3.0.0,)
+                        </versionRange>
+                        <goals>
+                          <goal>publish</goal>
+                        </goals>
+                      </pluginExecutionFilter>
+                      <action>
+                        <ignore />
+                      </action>
+                    </pluginExecution>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-checkstyle-plugin</artifactId>
+                        <versionRange>[3.1.2,)</versionRange>
+                        <goals>
+                          <goal>check</goal>
+                        </goals>
+                      </pluginExecutionFilter>
+                      <action>
+                        <ignore></ignore>
+                      </action>
+                    </pluginExecution>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <versionRange>[3.2.0,)</versionRange>
+                        <goals>
+                          <goal>unpack</goal>
+                        </goals>
+                      </pluginExecutionFilter>
+                      <action>
+                        <ignore></ignore>
+                      </action>
+                    </pluginExecution>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
+                        <groupId>com.google.code.maven-replacer-plugin</groupId>
+                        <artifactId>maven-replacer-plugin</artifactId>
+                        <versionRange>[1.4.1,)</versionRange>
+                        <goals>
+                          <goal>replace</goal>
+                        </goals>
+                      </pluginExecutionFilter>
+                      <action>
+                        <ignore></ignore>
+                      </action>
+                    </pluginExecution>
+                  </pluginExecutions>
+                </lifecycleMappingMetadata>
+              </configuration>
+            </plugin>
+
+            <!-- Configuration for Eclipse projects -->
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-eclipse-plugin</artifactId>
+              <version>${maven-eclipse-plugin.version}</version>
+              <configuration>
+                <downloadSources>true</downloadSources>
+                <downloadJavadocs>true</downloadJavadocs>
+
+                <additionalProjectnatures>
+                  <projectnature>org.eclipse.m2e.core.maven2Nature</projectnature>
+                </additionalProjectnatures>
+                <additionalBuildcommands>
+                  <buildcommand>org.eclipse.m2e.core.maven2Builder</buildcommand>
+                </additionalBuildcommands>
+
+                <testSourcesLast>true</testSourcesLast>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+        <plugins>
+          <plugin>
+            <groupId>org.eclipse.m2e</groupId>
+            <artifactId>lifecycle-mapping</artifactId>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-eclipse-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>
