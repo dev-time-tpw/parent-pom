@@ -5,14 +5,14 @@
 
   <parent>
     <groupId>de.devtime.common</groupId>
-    <artifactId>parent-pom-build</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <artifactId>parent-pom</artifactId>
+    <version>1.0.2-SNAPSHOT</version>
   </parent>
   
   <artifactId>parent-pom-spring</artifactId>
   <packaging>pom</packaging>
 
-  <name>dev|time</name>
+  <name>dev|time parent-pom (spring)</name>
   <description>Contains common configuration and dependencies for all dev|time spring projects.</description>
 
   <!-- Parameter and versions for all plugins and dependencies -->

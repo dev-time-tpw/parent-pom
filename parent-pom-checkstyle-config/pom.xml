@@ -5,14 +5,14 @@
 
 	<parent>
 		<groupId>de.devtime.common</groupId>
-		<artifactId>parent-pom-build</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<artifactId>parent-pom</artifactId>
+		<version>1.0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>parent-pom-checkstyle-config</artifactId>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
-	<name>checkstyle config</name>
+	<name>dev|time parent-pom (checkstyle-config)</name>
 	<description>Provides a custom checkstyle configuration to be able to use this configuration in all our projects.
 	</description>
 	<url>http://dev-time.de/javadoc/parent-pom-checkstyle-config/index.html</url>
@@ -27,6 +27,8 @@
 	<properties>
 		<checkstyle_configuration_file>src/main/resources/devtime_checks.xml</checkstyle_configuration_file>
 		<readme.to.maven.site.filename>index</readme.to.maven.site.filename>
+		
+		<maven-checkstyle-plugin.version>3.2.0</maven-checkstyle-plugin.version>
 	</properties>
 
 	<dependencies>

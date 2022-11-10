@@ -5,14 +5,14 @@
 
 	<parent>
 		<groupId>de.devtime.common</groupId>
-		<artifactId>parent-pom-build</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<artifactId>parent-pom</artifactId>
+		<version>1.0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>parent-pom-checkstyle</artifactId>
 	<packaging>pom</packaging>
 
-	<name>checkstyle parent pom</name>
+	<name>dev|time parent-pom (checkstyle)</name>
 	<description>Contains common configuration and dependencies for all dev|time projects.</description>
 	<url>http://dev-time.de/javadoc/parent-pom-checkstyle/index.html</url>
 

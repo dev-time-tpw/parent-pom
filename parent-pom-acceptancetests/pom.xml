@@ -5,14 +5,14 @@
 
 	<parent>
 		<groupId>de.devtime.common</groupId>
-		<artifactId>parent-pom-build</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<artifactId>parent-pom</artifactId>
+		<version>1.0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>parent-pom-acceptancetests</artifactId>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
-	<name>acceptance tests</name>
+	<name>dev|time parent-pom (acceptancetests)</name>
 	<description>Contains all acceptance tests for this project. All requirements and acceptance test results are located in the Serenity BDD report.</description>
 	<url>http://dev-time.de/javadoc/parent-pom-acceptancetests/index.html</url>
 
@@ -32,58 +32,6 @@
 		<sonar.organization>devtime</sonar.organization>
 		<sonar.projectKey>devtime_parent-pom-acceptancetests</sonar.projectKey>
 	</properties>
-
-	<dependencies>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-java</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-core</artifactId>
-            <version>${serenity.version}</version>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.cucumber</groupId>
-                    <artifactId>cucumber-core</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-screenplay</artifactId>
-            <version>${serenity.version}</version>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.cucumber</groupId>
-                    <artifactId>cucumber-core</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-cucumber6</artifactId>
-            <scope>test</scope>
-        </dependency>
-		<dependency>
-			<groupId>com.pivovarit</groupId>
-			<artifactId>throwing-function</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
 
 	<build>
 		<pluginManagement>

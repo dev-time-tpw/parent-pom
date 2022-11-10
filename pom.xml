@@ -4,11 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>de.devtime.common</groupId>
-  <artifactId>parent-pom-build</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <artifactId>parent-pom</artifactId>
+  <version>1.0.2-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>dev|time</name>
+  <name>dev|time parent-pom (build)</name>
   <description>Contains common configuration and dependencies for all dev|time projects.</description>
   <url>http://dev-time.de/javadoc/welcome.html</url>
   <licenses>
@@ -34,11 +34,13 @@
   </developers>
 
   <modules>
-    <module>parent-pom</module>
+    <module>parent-pom-common</module>
+    <!-- 
     <module>parent-pom-acceptancetests</module>
     <module>parent-pom-checkstyle-config</module>
     <module>parent-pom-checkstyle</module>
     <module>parent-pom-spring</module>
+    -->
   </modules>
 
   <scm>
@@ -47,6 +49,7 @@
     <url>https://github.com/dev-time-tpw/parent-pom</url>
     <tag>HEAD</tag>
   </scm>
+  <!-- TODO Umstellen auf Jira -->
   <issueManagement>
     <system>GitHub Issues</system>
     <url>https://github.com/dev-time-tpw/parent-pom/issues</url>
@@ -71,13 +74,12 @@
   <!-- Parameter and versions for all plugins and dependencies -->
   <properties>
 
-    <!-- Used by Github actions -->
-    <project.scm.id>github</project.scm.id>
-
     <!-- Used by SonarCloud -->
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     <sonar.organization>devtime</sonar.organization>
-    <sonar.projectKey>devtime_parent-pom-build</sonar.projectKey>
+    <sonar.projectKey>devtime_parent-pom</sonar.projectKey>
+    <sonar.projectName>dev|time parent-pom</sonar.projectName>
+    <sonar.projectVersion>${project.version}</sonar.projectVersion>
     <!-- solution for StackOverflowError problem (@see: https://community.sonarsource.com/t/stackoverflowerror-at-defaultinputcomponent-equals/20324) -->
     <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
 
